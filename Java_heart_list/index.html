@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_list/clip_image017.gif">
 <meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_list/clip_image019.gif">
 <meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_list/clip_image021.gif">
-<meta property="og:updated_time" content="2020-03-25T08:03:20.386Z">
+<meta property="og:updated_time" content="2020-04-04T12:35:44.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java核心(二)之集合">
 <meta name="twitter:description" content="1.接口继承关系和实现集合类存放于 Java.util 包中，主要有 3 种：set(集）、list(列表包含 Queue）和 map(映射)。  Collection：Collection 是集合 List、Set、Queue 的最基本的接口。  Iterator：迭代器，可以通过迭代器遍历集合中的数据   Map：是映射表的基础接口">
@@ -247,7 +247,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.5k字</span>
+      <span class="post-count">2.4k字</span>
     </span>
   </span>
 
@@ -327,11 +327,11 @@ var _hmt = _hmt || [];
 <h3 id="4-3-HashTable（线程安全）"><a href="#4-3-HashTable（线程安全）" class="headerlink" title="4.3. HashTable（线程安全）"></a>4.3. HashTable（线程安全）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Hashtable 是遗留类，很多映射的常用功能与 HashMap 类似，不同的是它承自 Dictionary 类，并且是线程安全的，任一时间只有一个线程能写 Hashtable，并发性不如 ConcurrentHashMap，因为 ConcurrentHashMap 引入了分段锁。Hashtable 不建议在新代码中使用，不需要线程安全的场合可以用 HashMap 替换，需要线程安全的场合可以用 ConcurrentHashMap 替换。 </p>
 <h3 id="4-4-TreeMap（可排序）"><a href="#4-4-TreeMap（可排序）" class="headerlink" title="4.4. TreeMap（可排序）"></a>4.4. TreeMap（可排序）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;TreeMap 实现 SortedMap 接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。 如果使用排序的映射，建议使用 TreeMap。 </p>
 <p>在使用 TreeMap 时，key 必须实现 Comparable 接口或者在构造 TreeMap 传入自定义的Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常。 </p>
-<p>参考：<a href="https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html[" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html[</a> ](<a href="https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html</a>)</p>
+<p>参考：<a href="https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-tree/index.html</a></p>
 <p><strong>4.5. LinkHashMap</strong>（记录插入顺序） </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;LinkedHashMap 是 HashMap 的一个子类，保存了记录的插入顺序，在用 Iterator 遍历 LinkedHashMap 时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。 </p>
-<p>参考 1<a href="http://www.importnew.com/28263.html" target="_blank" rel="noopener">：</a><a href="http://www.importnew.com/28263.html[" target="_blank" rel="noopener">http://www.importnew.com/28263.html[</a> ](<a href="http://www.importnew.com/28263.html" target="_blank" rel="noopener">http://www.importnew.com/28263.html</a>)</p>
-<p>参考 2<a href="http://www.importnew.com/20386.html#comment-648123" target="_blank" rel="noopener">：</a><a href="http://www.importnew.com/20386.html#comment-648123[" target="_blank" rel="noopener">http://www.importnew.com/20386.html#comment-648123[</a> ](<a href="http://www.importnew.com/20386.html#comment-648123" target="_blank" rel="noopener">http://www.importnew.com/20386.html#comment-648123</a>)</p>
+<p>参考：<a href="http://www.importnew.com/28263.html" target="_blank" rel="noopener">http://www.importnew.com/28263.html</a></p>
+<p>参考：<a href="http://www.importnew.com/20386.html#comment-648123" target="_blank" rel="noopener">http://www.importnew.com/20386.html#comment-648123</a></p>
 <h2 id="5-最后"><a href="#5-最后" class="headerlink" title="5.最后"></a>5.最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;java核心这部分，偶然所得的一份pdf文件，为不知名大佬所整理，在这表示感谢，本着学习所用的态度。</p>
 
     
@@ -441,11 +441,11 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
-    <a href="/spring-boot-01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Java_heart_thread/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring Boot入门
+          Java核心(三)之多线程并发
         
       </div>
     </a>
