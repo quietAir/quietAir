@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quietair.gitee.io">
-  <title>留言板 | QuietAir</title>
+  <title>Java核心(四)之JAVA基础 | QuietAir</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="主人寄语：    命里有时终须有，命里无时莫强求。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="留言板">
-<meta property="og:url" content="https://quietair.gitee.io/talk/index.html">
+  <meta name="description" content="1.JAVA异常分类及处理1.1.概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。在这种情况下会抛出一个封装了错误信息的对象。此时，这个方法会立刻退出同时不返回任何值。另外，调用这个方法的其他代码也无法继续执行，异常处理机制会将代码执行交给异常处理器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java核心(四)之JAVA基础">
+<meta property="og:url" content="https://quietair.gitee.io/Java_heart_base/index.html">
 <meta property="og:site_name" content="QuietAir">
-<meta property="og:description" content="主人寄语：    命里有时终须有，命里无时莫强求。">
+<meta property="og:description" content="1.JAVA异常分类及处理1.1.概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。在这种情况下会抛出一个封装了错误信息的对象。此时，这个方法会立刻退出同时不返回任何值。另外，调用这个方法的其他代码也无法继续执行，异常处理机制会将代码执行交给异常处理器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-04T12:45:52.858Z">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_base/clip_image003.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_base/clip_image005.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_base/clip_image007.jpg">
+<meta property="og:updated_time" content="2020-04-08T07:06:14.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="留言板">
-<meta name="twitter:description" content="主人寄语：    命里有时终须有，命里无时莫强求。">
+<meta name="twitter:title" content="Java核心(四)之JAVA基础">
+<meta name="twitter:description" content="1.JAVA异常分类及处理1.1.概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。在这种情况下会抛出一个封装了错误信息的对象。此时，这个方法会立刻退出同时不返回任何值。另外，调用这个方法的其他代码也无法继续执行，异常处理机制会将代码执行交给异常处理器。">
+<meta name="twitter:image" content="https://quietair.gitee.io/images/Java_heart_base/clip_image003.gif">
   
     <link rel="alternative" href="/atom.xml" title="QuietAir" type="application/atom+xml">
   
@@ -203,14 +207,14 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Java_heart_base" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      留言板
+      Java核心(四)之JAVA基础
     </h1>
   
 
@@ -222,8 +226,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/talk/index.html" class="archive-article-date">
-        <time datetime="2020-03-20T15:15:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+<a href="/Java_heart_base/" class="archive-article-date">
+        <time datetime="2020-01-18T09:06:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
 </a>
 
   
@@ -236,7 +240,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">18字</span>
+      <span class="post-count">5.5k字</span>
     </span>
   </span>
 
@@ -245,7 +249,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">21分</span>
     </span>
   </span>
 </div>
@@ -256,7 +260,195 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><strong>主人寄语：</strong><br>    命里有时终须有，命里无时莫强求。</p>
+    <h2 id="1-JAVA异常分类及处理"><a href="#1-JAVA异常分类及处理" class="headerlink" title="1.JAVA异常分类及处理"></a>1.JAVA异常分类及处理</h2><h3 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1.概念"></a>1.1.概念</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;如果某个方法不能按照正常的途径完成任务，就可以通过另一种路径退出方法。在这种情况下会抛出一个封装了错误信息的对象。此时，这个方法会立刻退出同时不返回任何值。另外，调用这个方法的其他代码也无法继续执行，异常处理机制会将代码执行交给异常处理器。</p>
+<a id="more"></a>
+
+<p><img src="/images/Java_heart_base/clip_image003.gif" alt="img"> </p>
+<h3 id="1-2-异常分类"><a href="#1-2-异常分类" class="headerlink" title="1.2.  异常分类"></a>1.2.  异常分类</h3><p>Throwable 是 Java 语言中所有错误或异常的超类。下一层分为 Error 和 Exception </p>
+<p><strong>Error</strong></p>
+<ol>
+<li>Error 类是指 java 运行时系统的内部错误和资源耗尽错误。应用程序不会抛出该类对象。如果出现了这样的错误，除了告知用户，剩下的就是尽力使程序安全的终止。 </li>
+</ol>
+<p><strong>Exception（RuntimeException、CheckedException）</strong> </p>
+<ol start="2">
+<li>Exception 又 有 两 个 分 支 ， 一 个 是 运 行 时 异 常 RuntimeException ， 一 个是 CheckedException。 </li>
+</ol>
+<p><strong>RuntimeException</strong> 如 ： NullPointerException 、 ClassCastException ； 一 个 是 检 查 异 常 CheckedException，如 I/O 错误导致的 IOException、SQLException。 RuntimeException 是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类。 如果出现 RuntimeException，那么一定是程序员的错误. </p>
+<p><strong>检查异常 CheckedException</strong>：一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch，该类异常一般包括几个方面： </p>
+<ol>
+<li><p>试图在文件尾部读取数据 </p>
+</li>
+<li><p>试图打开一个错误格式的 URL </p>
+</li>
+<li><p>试图根据给定的字符串查找 class 对象，而这个字符串表示的类并不存在</p>
+</li>
+</ol>
+<h3 id="1-3-异常的处理方式"><a href="#1-3-异常的处理方式" class="headerlink" title="1.3.  异常的处理方式"></a>1.3.  异常的处理方式</h3><p>遇到问题不进行具体处理，而是继续抛给调用者 （<strong>throw,throws</strong>） </p>
+<p>抛出异常有三种形式，一是 throw,一个 throws，还有一种系统自动抛异常。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> 	String s = <span class="string">"abc"</span>;</span><br><span class="line"> 	<span class="keyword">if</span>(s.equals(<span class="string">"abc"</span>)) &#123;</span><br><span class="line"> 		<span class="keyword">throw</span> <span class="keyword">new</span> NumberFormatException();</span><br><span class="line"> 	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> 		System.out.println(s);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">div</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a/b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>try catch捕获异常针对性处理方式</strong> </p>
+<h3 id="1-4-Throw-和-throws-的区别："><a href="#1-4-Throw-和-throws-的区别：" class="headerlink" title="1.4.  Throw 和 throws 的区别："></a>1.4.  Throw 和 throws 的区别：</h3><p><strong>位置不同 :</strong></p>
+<ol>
+<li><p><strong>throws 用在函数上</strong>，后面跟的是异常类，可以跟多个；而 throw 用在函数内，后面跟的是异常对象。 功能不同： </p>
+</li>
+<li><p><strong>throws 用来声明异常，让调用者只知道该功能可能出现的问题</strong>，可以给出预先的处理方式；<strong>throw抛出具体的问题对象，执行到throw，功能就已经结束了</strong>，跳转到调用者，并将具体的问题对象抛给调用者。也就是说 throw 语句独立存在时，下面不要定义其他语句，因为执行不到。 </p>
+</li>
+<li><p><strong>throws 表示出现异常的一种可能性</strong>，并不一定会发生这些异常；throw 则是抛出了异常，执行 throw 则一定抛出了某种异常对象。 </p>
+</li>
+<li><p>两者都是消极处理异常的方式，只是抛出或者可能抛出异常，但是不会由函数去处理异常，真正的处理异常由函数的上层调用处理。</p>
+</li>
+</ol>
+<h2 id="2-JAVA-反射"><a href="#2-JAVA-反射" class="headerlink" title="2.JAVA 反射"></a>2.JAVA 反射</h2><h3 id="2-1-动态语言"><a href="#2-1-动态语言" class="headerlink" title="2.1.  动态语言"></a>2.1.  动态语言</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;动态语言，是指程序在运行时可以改变其结构：新的函数可以引进，已有的函数可以被删除等结构上的变化。比如常见的 JavaScript 就是动态语言，除此之外 Ruby,Python 等也属于动态语言，而 C、C++则不属于动态语言。从反射角度说 JAVA 属于半动态语言。 </p>
+<h3 id="2-2-反射机制概念（运行状态中知道类所有的属性和方法）"><a href="#2-2-反射机制概念（运行状态中知道类所有的属性和方法）" class="headerlink" title="2.2.反射机制概念（运行状态中知道类所有的属性和方法）"></a>2.2.反射机制概念（运行状态中知道类所有的属性和方法）</h3><p><img src="/images/Java_heart_base/clip_image005.gif" alt="img"> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在 Java 中的反射机制是指<u>在运行状态中，对于任意一个类都能够知道这个类所有的属性和方法；并且对于任意一个对象，都能够调用它的任意一个方法</u>；这种动态获取信息以及动态调用对象方法的功能成为 Java 语言的反射机制。 </p>
+<h3 id="2-3-反射的应用场合"><a href="#2-3-反射的应用场合" class="headerlink" title="2.3.  反射的应用场合"></a>2.3.  反射的应用场合</h3><p><strong>编译时类型和运行时类型</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在 Java 程序中许多对象在运行是都会出现两种类型：编译时类型和运行时类型。 编译时的类型由声明对象时实用的类型来决定，运行时的类型由实际赋值给对象的类型决定 。如： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person p=<span class="keyword">new</span> Student(); </span><br><span class="line"><span class="comment">//其中编译时类型为 Person，运行时类型为 Student。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>的编译时类型无法获取具体方法</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;程序在运行时还可能接收到外部传入的对象，该<strong>对象的编译时类型为 Object</strong>,但是程序有需要调用该对象的运行时类型的方法。为了解决这些问题，<strong>程序需要在运行时发现对象和类的真实信息</strong>。然而，如果编译时根本无法预知该对象和类属于哪些类，程序只能依靠运行时信息来发现该对象和类的真实信息，此时就必须使用到反射了。</p>
+<h3 id="2-4-Java-反射-API"><a href="#2-4-Java-反射-API" class="headerlink" title="2.4.  Java 反射 API"></a>2.4.  Java 反射 API</h3><p><strong>反射API用来生成JVM中的类、接口或则对象的信息。</strong> </p>
+<ol>
+<li><p>Class 类：反射的核心类，可以获取类的属性，方法等信息。 </p>
+</li>
+<li><p>Field 类：Java.lang.reflec 包中的类，表示类的成员变量，可以用来获取和设置类之中的属性值。 </p>
+</li>
+<li><p>Method 类： Java.lang.reflec 包中的类，表示类的方法，它可以用来获取类中的方法信息或者执行方法。 </p>
+</li>
+<li><p>Constructor 类： Java.lang.reflec 包中的类，表示类的构造方法。 </p>
+</li>
+</ol>
+<h3 id="2-5-反射使用步骤（获取-Class-对象、调用对象方法）"><a href="#2-5-反射使用步骤（获取-Class-对象、调用对象方法）" class="headerlink" title="2.5.  反射使用步骤（获取 Class 对象、调用对象方法）"></a>2.5.  反射使用步骤（获取 Class 对象、调用对象方法）</h3><ol>
+<li><p>获取想要操作的类的 Class 对象，他是反射的核心，通过 Class 对象我们可以任意调用类的方法。 </p>
+</li>
+<li><p>调用 Class 类中的方法，既就是反射的使用阶段。</p>
+</li>
+<li><p>使用反射 API 来操作这些信息。</p>
+</li>
+</ol>
+<h3 id="2-6-获取-Class-对象的-3-种方法"><a href="#2-6-获取-Class-对象的-3-种方法" class="headerlink" title="2.6.  获取 Class 对象的 3 种方法"></a>2.6.  获取 Class 对象的 3 种方法</h3><p><strong>调用某个对象的getClass()方法</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person p=<span class="keyword">new</span> Person(); </span><br><span class="line">Class clazz=p.getClass();</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用某个类的class属性来获取该类对应的Class对象</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class clazz=Person<span class="class">.<span class="keyword">class</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用Class类中的forName()静态方法(最安全性能最好)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class clazz=Class.forName(<span class="string">"类的全路径"</span>); (最常用)</span><br></pre></td></tr></table></figure>
+
+<p><strong>当我们获得了想要操作的类的 Class 对象后，可以通过 Class 类中的方法获取并查看该类中的方法和属性。</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象</span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取 Person 类的所有方法信息</span></span><br><span class="line">Method[] method=clazz.getDeclaredMethods();</span><br><span class="line"><span class="keyword">for</span>(Method m:method)&#123;</span><br><span class="line">	System.out.println(m.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取 Person 类的所有成员属性信息</span></span><br><span class="line">Field[] field=clazz.getDeclaredFields();</span><br><span class="line"><span class="keyword">for</span>(Field f:field)&#123;</span><br><span class="line">	System.out.println(f.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取 Person 类的所有构造方法信息</span></span><br><span class="line">Constructor[] constructor=clazz.getDeclaredConstructors();</span><br><span class="line"><span class="keyword">for</span>(Constructor c:constructor)&#123;</span><br><span class="line">	System.out.println(c.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-7-创建对象的两种方法"><a href="#2-7-创建对象的两种方法" class="headerlink" title="2.7.  创建对象的两种方法"></a>2.7.  创建对象的两种方法</h3><p><strong>Class对象的newInstance()</strong></p>
+<ol>
+<li>使用 Class 对象的 newInstance()方法来创建该 Class 对象对应类的实例，但是这种方法要求该 Class 对象对应的类有默认的空构造器。 </li>
+</ol>
+<p><strong>调用Constructor对象的newInstance()</strong></p>
+<ol start="2">
+<li>先使用 Class 对象获取指定的 Constructor 对象，再调用 Constructor 对象的 newInstance() 方法来创建 Class 对象对应类的实例,通过这种方法可以选定构造方法创建实例。   </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象 </span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//使用.newInstane 方法创建对象 </span></span><br><span class="line">Person p=(Person) clazz.newInstance(); </span><br><span class="line"></span><br><span class="line"><span class="comment">//获取构造方法并创建对象 </span></span><br><span class="line">Constructor c=clazz.getDeclaredConstructor(String<span class="class">.<span class="keyword">class</span>,<span class="title">String</span>.<span class="title">class</span>,<span class="title">int</span>.<span class="title">class</span>)</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//创建对象并设置属性 </span></span><br><span class="line">Person p1=(Person) c.newInstance(<span class="string">"李四"</span>,<span class="string">"男"</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-JAVA注解"><a href="#3-JAVA注解" class="headerlink" title="3.JAVA注解"></a>3.JAVA注解</h2><h3 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1. 概念"></a>3.1. 概念</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Annotation（注解）是 Java 提供的一种对元程序中元素关联信息和元数据（metadata）的途径和方法。<strong>Annatation(注解)是一个接口</strong>，程序可以通过反射来获取指定程序中元素的 Annotation 对象，然后通过该 Annotation 对象来获取注解中的元数据信息。</p>
+<h3 id="3-2-4-种标准元注解"><a href="#3-2-4-种标准元注解" class="headerlink" title="3.2.   4 种标准元注解"></a>3.2.   4 种标准元注解</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;元注解的作用是负责注解其他注解。 Java5.0 定义了 4 个标准的 meta-annotation 类型，它们被用来提供对其它 annotation 类型作说明。 </p>
+<p><strong>@Target修饰的对象范围</strong> </p>
+<p>@Target说明了Annotation所修饰的对象范围： Annotation<u>可被用于 packages、types（类、接口、枚举、Annotation 类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch 参数）</u>。在 Annotation 类型的声明中使用了 target 可更加明晰其修饰的目标</p>
+<p><strong>@Retention定义被保留的时间长短</strong> </p>
+<p><strong>Retention 定义了该 Annotation 被保留的时间长短</strong>：表示需要在什么级别保存注解信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效），取值（RetentionPoicy）由： </p>
+<ul>
+<li><p>SOURCE:在源文件中有效（即源文件保留） </p>
+</li>
+<li><p>CLASS:在 class 文件中有效（即 class 保留） </p>
+</li>
+<li><p>RUNTIME:在运行时有效（即运行时保留）</p>
+</li>
+</ul>
+<p><strong>@Documented 描述-javadoc</strong> </p>
+<p>@ Documented 用于描述其它类型的 annotation 应该被作为被标注的程序成员的公共 API，因此可以被例如 javadoc 此类的工具文档化。 </p>
+<p><strong>@Inherited 阐述了某个被标注的类型是被继承的</strong> </p>
+<p>@Inherited 元注解是一个标记注解，<strong>@Inherited 阐述了某个被标注的类型是被继承的</strong>。如果一个使用了@Inherited 修饰的 annotation 类型被用于一个 class，则这个 annotation 将被用于该 class 的子类。 </p>
+<p><img src="/images/Java_heart_base/clip_image007.jpg" alt="img"> </p>
+<h3 id="3-3-注解处理器"><a href="#3-3-注解处理器" class="headerlink" title="3.3. 注解处理器"></a>3.3. 注解处理器</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;如果没有用来读取注解的方法和工作，那么注解也就不会比注释更有用处了。使用注解的过程中，很重要的一部分就是创建于使用注解处理器。Java SE5扩展了反射机制的API，以帮助程序员快速的构造自定义注解处理器。下面实现一个注解处理器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 1：*** 定义注解 */</span></span><br><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> FruitProvider &#123;</span><br><span class="line">	<span class="comment">/* * 供应商编号*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">id</span><span class="params">()</span> <span class="keyword">default</span> -1</span>;</span><br><span class="line">	<span class="comment">/* ** 供应商名称*/</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> ""；</span></span><br><span class="line"><span class="function">	<span class="comment">/* *** 供应商地址*/</span></span></span><br><span class="line"><span class="function"> 	<span class="keyword">public</span> String <span class="title">address</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2：注解使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</span><br><span class="line"> 	<span class="meta">@FruitProvider</span>(id = <span class="number">1</span>, name = <span class="string">"陕西红富士集团"</span>, address = <span class="string">"陕西省西安市延安路"</span>)</span><br><span class="line"> 	<span class="keyword">private</span> String appleProvider;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAppleProvider</span><span class="params">(String appleProvider)</span> </span>&#123;</span><br><span class="line"> 		<span class="keyword">this</span>.appleProvider = appleProvider;</span><br><span class="line"> 	&#125;</span><br><span class="line">    </span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> String <span class="title">getAppleProvider</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 		<span class="keyword">return</span> appleProvider;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*3：*********** 注解处理器 *************** */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitInfoUtil</span> </span>&#123;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFruitInfo</span><span class="params">(Class&lt;?&gt; clazz)</span> </span>&#123;</span><br><span class="line"> 		String strFruitProvicer = <span class="string">"供应商信息："</span>;</span><br><span class="line"> 		Field[] fields = clazz.getDeclaredFields();<span class="comment">//通过反射获取处理注解</span></span><br><span class="line"> 		<span class="keyword">for</span> (Field field : fields) &#123;</span><br><span class="line"> 			<span class="keyword">if</span> (field.isAnnotationPresent(FruitProvider<span class="class">.<span class="keyword">class</span>)) </span>&#123;</span><br><span class="line"> 				FruitProvider fruitProvider = (FruitProvider) 							 		field.getAnnotation(FruitProvider<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="comment">//注解信息的处理地方</span></span><br><span class="line">				strFruitProvicer = <span class="string">" 供应商编号："</span> + fruitProvider.id() + <span class="string">" 供应商名称："</span> + fruitProvider.name() + <span class="string">" 供应商地址："</span>+ fruitProvider.address();</span><br><span class="line"> 				System.out.println(strFruitProvicer);</span><br><span class="line"> 			&#125;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitRun</span> </span>&#123;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> 	FruitInfoUtil.getFruitInfo(Apple<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">	<span class="comment">/* **********输出结果************** */</span></span><br><span class="line">	<span class="comment">// 供应商编号：1 供应商名称：陕西红富士集团 供应商地址：陕西省西安市延</span></span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-JAVA-内部类"><a href="#4-JAVA-内部类" class="headerlink" title="4. JAVA 内部类"></a>4. JAVA 内部类</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Java 类中不仅可以定义变量和方法，还可以定义类，这样定义在类内部的类就被称为内部类。根据定义的方式不同，内部类分为静态内部类，成员内部类，局部内部类，匿名内部类四种。</p>
+<h3 id="4-1-静态内部类"><a href="#4-1-静态内部类" class="headerlink" title="4.1. 静态内部类"></a>4.1. 静态内部类</h3><p>定义在类内部的静态类，就是静态内部类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Out</span></span>&#123;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> b;   </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;     </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;         </span><br><span class="line">            System.out.println(a);       </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>静态内部类可以访问外部类所有的静态变量和方法，即使是 private 的也一样。 </p>
+</li>
+<li><p>静态内部类和一般类一致，可以定义静态变量、方法，构造方法等。 </p>
+</li>
+<li><p>其它类使用静态内部类需要使用“外部类.静态内部类”方式，如下所示：Out.Inner inner = new Out.Inner();inner.print(); </p>
+</li>
+<li><p><strong>Java集合类HashMap内部就有一个静态内部类Entry</strong>。Entry是HashMap存放元素的抽象， HashMap 内部维护 Entry 数组用了存放元素，但是 Entry 对使用者是透明的。像这种和外部类关系密切的，且不依赖外部类实例的，都可以使用静态内部类。 </p>
+</li>
+</ol>
+<h3 id="4-2-成员内部类"><a href="#4-2-成员内部类" class="headerlink" title="4.2. 成员内部类"></a>4.2. 成员内部类</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;定义在类内部的非静态类，就是成员内部类。成员内部类不能定义静态方法和变量（final 修饰的除外）。这是因为成员内部类是非静态的，<strong>类初始化的时候先初始化静态成员，如果允许成员内部类定义静态变量，那么成员内部类的静态变量初始化顺序是有歧义的。</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">Out</span></span>&#123;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> b;   </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;     </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;       </span><br><span class="line">            System.out.println(a);         </span><br><span class="line">            System.out.println(b);       </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-局部内部类"><a href="#4-3-局部内部类" class="headerlink" title="4.3. 局部内部类"></a>4.3. 局部内部类</h3><p><strong>定义在方法中的类</strong>.</p>
+<p>定义在方法中的类，就是局部类。如果一个类只在某个方法中使用，则可以考虑使用局部类。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Out</span> </span>&#123;   </span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">static</span> <span class="keyword">int</span> a;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> b;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> c)</span> </span>&#123;     </span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> d = <span class="number">1</span>;     </span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span>  </span>&#123;       </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;               </span><br><span class="line">                System.out.println(c);            </span><br><span class="line">            &#125;       </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-匿名内部类"><a href="#4-4-匿名内部类" class="headerlink" title="4.4. 匿名内部类"></a>4.4. 匿名内部类</h3><p><strong>要继承一个父类或者实现一个接口、直接使用 new 来生成一个对象的引用.</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;匿名内部类我们必须要继承一个父类或者实现一个接口，当然也仅能只继承一个父类或者实现一个接口。同时它也是没有class关键字，这是因为匿名内部类是直接使用new来生成一个对象的引用。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line"> 	<span class="keyword">private</span> String name;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 		<span class="keyword">return</span> name;</span><br><span class="line"> 	&#125;</span><br><span class="line">    </span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line"> 		<span class="keyword">this</span>.name = name;</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(Bird bird)</span></span>&#123;</span><br><span class="line"> 		System.out.println(bird.getName() + <span class="string">"能够飞 "</span> + bird.fly() + <span class="string">"米"</span>);</span><br><span class="line"> 	&#125;</span><br><span class="line">    </span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> 		Test test = <span class="keyword">new</span> Test();</span><br><span class="line"> 		test.test(<span class="keyword">new</span> Bird() &#123;</span><br><span class="line"> 			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 				<span class="keyword">return</span> <span class="number">10000</span>;</span><br><span class="line"> 			&#125;</span><br><span class="line"> 		<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> <span class="string">"大雁"</span>;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 		&#125;);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-JAVA-泛型"><a href="#5-JAVA-泛型" class="headerlink" title="5.JAVA 泛型"></a>5.JAVA 泛型</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。比如我们要写一个排序方法，能够对整型数组、字符串数组甚至其他任何类型的数组进行排序，我们就可以使用 Java 泛型。 </p>
+<h3 id="5-1-泛型方法-lt-E-gt"><a href="#5-1-泛型方法-lt-E-gt" class="headerlink" title="5.1. 泛型方法&lt; E &gt;"></a>5.1. 泛型方法&lt; E &gt;</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;你可以写一个泛型方法，该方法在调用时可以接收不同类型的参数。根据传递给泛型方法的参数类型，编译器适当地处理每一个方法调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 泛型方法 printArray               </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt; E &gt; <span class="function"><span class="keyword">void</span> <span class="title">printArray</span><span class="params">( E[] inputArray )</span>     </span>&#123;              </span><br><span class="line">    <span class="keyword">for</span> ( E element : inputArray )&#123;             </span><br><span class="line">        System.out.printf( <span class="string">"%s  "</span>, element );        </span><br><span class="line">    &#125;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>&lt;? extends T&gt;表示该通配符所代表的类型是 T 类型的子类。</p>
+</li>
+<li><p>&lt;? super T&gt;表示该通配符所代表的类型是 T 类型的父类。 </p>
+</li>
+</ol>
+<h3 id="5-2-泛型类-lt-T-gt"><a href="#5-2-泛型类-lt-T-gt" class="headerlink" title="5.2. 泛型类&lt; T &gt;"></a>5.2. 泛型类&lt; T &gt;</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;泛型类的声明和非泛型类的声明类似，除了在类名后面添加了类型参数声明部分。和泛型方法一样，泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123;    </span><br><span class="line">    <span class="keyword">private</span> T t;      </span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(T t)</span> </span>&#123;    </span><br><span class="line">        <span class="keyword">this</span>.t = t;      </span><br><span class="line">    &#125;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">return</span> t;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-类型通配符"><a href="#5-3-类型通配符" class="headerlink" title="5.3. 类型通配符"></a>5.3. 类型通配符</h3><p>类 型 通 配 符 一 般 是 使 用 ? 代 替 具 体 的 类 型 参 数 。 例 如 List&lt;?&gt; 在 逻 辑 上 是</p>
+<p>List&lt; String &gt;,List&lt; Integer &gt; 等所有 List&lt;具体类型实参&gt;的父类。 </p>
+<h3 id="5-4-类型擦除"><a href="#5-4-类型擦除" class="headerlink" title="5.4. 类型擦除"></a>5.4. 类型擦除</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<u>Java 中的泛型基本上都是在编译器这个层次来实现的。在生成的 Java 字节代码中是不包含泛型中的类型信息的</u>。使用泛型的时候加上的类型参数，会被编译器在编译的时候去掉。这个过程就称为类型擦除。如在代码中定义的 List&lt; Object &gt;和 List&lt; String &gt;等类型，在编译之后都会变成 List。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;JVM 看到的只是 List，而由泛型附加的类型信息对 JVM 来说是不可见的。 类型擦除的基本过程也比较简单，首先是找到用来替换类型参数的具体类。这个具体类一般是 Object。如果指定了类型参数的上界的话，则使用这个上界。把代码中的类型参数都替换成具体的类。 </p>
+<h2 id="6-JAVA-序列化-创建可复用的-Java-对象"><a href="#6-JAVA-序列化-创建可复用的-Java-对象" class="headerlink" title="6.JAVA 序列化(创建可复用的 Java 对象)"></a>6.JAVA 序列化(创建可复用的 Java 对象)</h2><p><strong>保存(持久化)对象及其状态到内存或者磁盘</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Java 平台允许我们在内存中创建可复用的 Java 对象，但一般情况下，只有当 JVM 处于运行时，这些对象才可能存在，即，这些对象的生命周期不会比 JVM 的生命周期更长。<u>但在现实应用中，就可能要求在JVM停止运行之后能够保存(持久化)指定的对象，并在将来重新读取被保存的对象</u>。 Java 对象序列化就能够帮助我们实现该功能。 </p>
+<p><strong>序列化对象以字节数组保持-静态成员不保存</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;使用 Java 对象序列化，<u>在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象</u>。必须注意地是，<u>对象序列化保存的是对象的”状态”，即它的成员变量</u>。由此可知，对象序列化不会关注类中的静态变量。 </p>
+<p><strong>序列化用户远程对象传输</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;除了在持久化对象时会用到对象序列化之外，当使用 RMI(远程方法调用)，或在网络中传递对象时，都会用到对象序列化。Java序列化API为处理对象序列化提供了一个标准机制，该API简单易用。 </p>
+<p><strong>Serializable实现序列化</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在 Java 中，<strong>只要一个类实现了 java.io.Serializable 接口</strong>，那么它就可以被序列化。</p>
+<p><strong>ObjectOutputStream和ObjectInputStream对对象进行序列化及反序列化</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;通过 ObjectOutputStream 和 ObjectInputStream 对对象进行序列化及反序列化。 </p>
+<p><strong>writeObject和 readObject自定义序列化策略</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在类中增加 writeObject 和 readObject 方法可以实现自定义序列化策略。 </p>
+<p><strong>序列化 ID</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的序列化 ID 是否一致（就是 private static final long serialVersionUID） </p>
+<p><strong>序列化并不保存静态变量</strong> </p>
+<p><strong>序列化子父类说明</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;要想将父类对象也序列化，就需要让父类也实现 Serializable 接口。 </p>
+<p><strong>Transient关键字阻止该变量被序列化到文件中</strong> </p>
+<ol>
+<li><p>在变量声明前加上 <u>Transient 关键字，可以阻止该变量被序列化到文件中</u>，在被反序列化后，transient 变量的值被设为初始值，如 int 型的是 0，对象型的是 null。 </p>
+</li>
+<li><p>服务器端给客户端发送序列化对象数据，对象中有一些数据是敏感的，比如密码字符串等，希望对该密码字段在序列化时，进行加密，而客户端如果拥有解密的密钥，只有在客户端进行反序列化时，才可以对密码进行读取，这样可以一定程度保证序列化对象的数据安全。</p>
+</li>
+</ol>
+<h2 id="7-JAVA-复制"><a href="#7-JAVA-复制" class="headerlink" title="7.JAVA 复制"></a>7.JAVA 复制</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;将一个对象的引用复制给另外一个对象，一共有三种方式。第一种方式是直接赋值，第二种方式是浅拷贝，第三种是深拷贝。所以大家知道了哈，这三种概念实际上都是为了拷贝对象。</p>
+<h3 id="7-1-直接赋值复制"><a href="#7-1-直接赋值复制" class="headerlink" title="7.1.  直接赋值复制"></a>7.1.  直接赋值复制</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;直接赋值。在 Java 中，A a1 = a2，我们需要理解的是这实际上复制的是引用，也就是说 a1 和 a2 指向的是同一个对象。因此，当 a1 变化的时候，a2 里面的成员变量也会跟着变化。 </p>
+<h3 id="7-2-浅复制（复制引用但不复制引用的对象）"><a href="#7-2-浅复制（复制引用但不复制引用的对象）" class="headerlink" title="7.2.  浅复制（复制引用但不复制引用的对象）"></a>7.2.  浅复制（复制引用但不复制引用的对象）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;创建一个新对象，然后将当前对象的非静态字段复制到该新对象，<strong>如果字段是值类型的，那么对该字段执行复制；如果该字段是引用类型的话，则复制引用但不复制引用的对象</strong>。因此，原始对象及其副本引用同一个对象。     </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Resume</span>  <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;       </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;        </span><br><span class="line">        <span class="keyword">try</span> &#123;          </span><br><span class="line">            <span class="keyword">return</span> (Resume)<span class="keyword">super</span>.clone();        </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;        </span><br><span class="line">            e.printStackTrace();        </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;        </span><br><span class="line">        &#125;         </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-深复制（复制对象和其应用对象）"><a href="#7-3-深复制（复制对象和其应用对象）" class="headerlink" title="7.3.  深复制（复制对象和其应用对象）"></a>7.3.  深复制（复制对象和其应用对象）</h3><p>深拷贝不仅复制对象本身，而且复制对象包含的引用指向的所有对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;   </span><br><span class="line">    String name;   </span><br><span class="line">    <span class="keyword">int</span> age;     </span><br><span class="line">    Professor p;       </span><br><span class="line">    Student(String name, <span class="keyword">int</span> age, Professor p) &#123;     </span><br><span class="line">        <span class="keyword">this</span>.name = name;     </span><br><span class="line">        <span class="keyword">this</span>.age = age;     </span><br><span class="line">        <span class="keyword">this</span>.p = p;     </span><br><span class="line">    &#125;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;     </span><br><span class="line">        Student o = <span class="keyword">null</span>;       </span><br><span class="line">        <span class="keyword">try</span> &#123;         </span><br><span class="line">            o = (Student) <span class="keyword">super</span>.clone();       </span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException  e) &#123;         </span><br><span class="line">            System.out.println(e.toString());        </span><br><span class="line">        &#125;        </span><br><span class="line">        o.p = (Professor);  </span><br><span class="line">        p.clone();     </span><br><span class="line">        <span class="keyword">return</span> o;     </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-序列化（深-clone-一中实现）"><a href="#7-4-序列化（深-clone-一中实现）" class="headerlink" title="7.4. 序列化（深 clone 一中实现）"></a>7.4. 序列化（深 clone 一中实现）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;在Java 语言里深复制一个对象，常常可以先使对象实现 Serializable 接口，然后把对象（实际上只是对象的一个拷贝）写到一个流里，再从流里读出来，便可以重建对象。</p>
+<h2 id="8-最后"><a href="#8-最后" class="headerlink" title="8.最后"></a>8.最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;java核心这部分，偶然所得的一份pdf文件，为不知名大佬所整理，在这表示感谢，本着学习所用的态度。</p>
 
     
 
@@ -271,7 +463,7 @@ var _hmt = _hmt || [];
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://quietair.gitee.io/talk/index.html" title="留言板" target="_blank">https://quietair.gitee.io/talk/index.html</a>
+          <a href="https://quietair.gitee.io/Java_heart_base/" title="Java核心(四)之JAVA基础" target="_blank">https://quietair.gitee.io/Java_heart_base/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -286,6 +478,21 @@ var _hmt = _hmt || [];
     
     
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端/" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -335,7 +542,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/talk/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/Java_heart_base/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -347,6 +554,25 @@ var _hmt = _hmt || [];
   </div>
 </article>
 
+
+<nav id="article-nav">
+  
+    <a href="/spring-boot-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring Boot入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Java_heart_thread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java核心(三)之多线程并发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -369,7 +595,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    没用目录哦…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-JAVA异常分类及处理"><span class="toc-number">1.</span> <span class="toc-text">1.JAVA异常分类及处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-异常分类"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.  异常分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-异常的处理方式"><span class="toc-number">1.3.</span> <span class="toc-text">1.3.  异常的处理方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Throw-和-throws-的区别："><span class="toc-number">1.4.</span> <span class="toc-text">1.4.  Throw 和 throws 的区别：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JAVA-反射"><span class="toc-number">2.</span> <span class="toc-text">2.JAVA 反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-动态语言"><span class="toc-number">2.1.</span> <span class="toc-text">2.1.  动态语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-反射机制概念（运行状态中知道类所有的属性和方法）"><span class="toc-number">2.2.</span> <span class="toc-text">2.2.反射机制概念（运行状态中知道类所有的属性和方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-反射的应用场合"><span class="toc-number">2.3.</span> <span class="toc-text">2.3.  反射的应用场合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Java-反射-API"><span class="toc-number">2.4.</span> <span class="toc-text">2.4.  Java 反射 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-反射使用步骤（获取-Class-对象、调用对象方法）"><span class="toc-number">2.5.</span> <span class="toc-text">2.5.  反射使用步骤（获取 Class 对象、调用对象方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-获取-Class-对象的-3-种方法"><span class="toc-number">2.6.</span> <span class="toc-text">2.6.  获取 Class 对象的 3 种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-创建对象的两种方法"><span class="toc-number">2.7.</span> <span class="toc-text">2.7.  创建对象的两种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-JAVA注解"><span class="toc-number">3.</span> <span class="toc-text">3.JAVA注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-概念"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-种标准元注解"><span class="toc-number">3.2.</span> <span class="toc-text">3.2.   4 种标准元注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-注解处理器"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 注解处理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-JAVA-内部类"><span class="toc-number">4.</span> <span class="toc-text">4. JAVA 内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-静态内部类"><span class="toc-number">4.1.</span> <span class="toc-text">4.1. 静态内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-成员内部类"><span class="toc-number">4.2.</span> <span class="toc-text">4.2. 成员内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-局部内部类"><span class="toc-number">4.3.</span> <span class="toc-text">4.3. 局部内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-匿名内部类"><span class="toc-number">4.4.</span> <span class="toc-text">4.4. 匿名内部类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JAVA-泛型"><span class="toc-number">5.</span> <span class="toc-text">5.JAVA 泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-泛型方法-lt-E-gt"><span class="toc-number">5.1.</span> <span class="toc-text">5.1. 泛型方法&lt; E &gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-泛型类-lt-T-gt"><span class="toc-number">5.2.</span> <span class="toc-text">5.2. 泛型类&lt; T &gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-类型通配符"><span class="toc-number">5.3.</span> <span class="toc-text">5.3. 类型通配符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-类型擦除"><span class="toc-number">5.4.</span> <span class="toc-text">5.4. 类型擦除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-JAVA-序列化-创建可复用的-Java-对象"><span class="toc-number">6.</span> <span class="toc-text">6.JAVA 序列化(创建可复用的 Java 对象)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-JAVA-复制"><span class="toc-number">7.</span> <span class="toc-text">7.JAVA 复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-直接赋值复制"><span class="toc-number">7.1.</span> <span class="toc-text">7.1.  直接赋值复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-浅复制（复制引用但不复制引用的对象）"><span class="toc-number">7.2.</span> <span class="toc-text">7.2.  浅复制（复制引用但不复制引用的对象）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-深复制（复制对象和其应用对象）"><span class="toc-number">7.3.</span> <span class="toc-text">7.3.  深复制（复制对象和其应用对象）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-序列化（深-clone-一中实现）"><span class="toc-number">7.4.</span> <span class="toc-text">7.4. 序列化（深 clone 一中实现）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-最后"><span class="toc-number">8.</span> <span class="toc-text">8.最后</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -382,7 +608,7 @@ var _hmt = _hmt || [];
 
 
 
-<div id="SOHUCS" sid="" ></div> 
+<div id="SOHUCS" sid="Java_heart_base" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -439,7 +665,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
