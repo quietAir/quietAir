@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quietair.gitee.io">
-  <title>QuietAir</title>
+  <title>Java核心(九)之日志 | QuietAir</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="">
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="QuietAir">
-<meta property="og:url" content="https://quietair.gitee.io/page/2/index.html">
+  <meta name="description" content="1. Slf4j&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;slf4j 的全称是 Simple Loging Facade For Java，即它仅仅是一个为 Java 程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如 JDBC 一样，只是一种规则而已。所以单独的 slf4j 是不能工作的，必须搭配其他具体的日志实现方案，比如 apache 的 org.apache.log4j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java核心(九)之日志">
+<meta property="og:url" content="https://quietair.gitee.io/Java_heart_log/index.html">
 <meta property="og:site_name" content="QuietAir">
+<meta property="og:description" content="1. Slf4j&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;slf4j 的全称是 Simple Loging Facade For Java，即它仅仅是一个为 Java 程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如 JDBC 一样，只是一种规则而已。所以单独的 slf4j 是不能工作的，必须搭配其他具体的日志实现方案，比如 apache 的 org.apache.log4j">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-16T06:55:35.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QuietAir">
+<meta name="twitter:title" content="Java核心(九)之日志">
+<meta name="twitter:description" content="1. Slf4j&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;slf4j 的全称是 Simple Loging Facade For Java，即它仅仅是一个为 Java 程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如 JDBC 一样，只是一种规则而已。所以单独的 slf4j 是不能工作的，必须搭配其他具体的日志实现方案，比如 apache 的 org.apache.log4j">
   
     <link rel="alternative" href="/atom.xml" title="QuietAir" type="application/atom+xml">
   
@@ -202,485 +203,131 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Java_heart_list" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java_heart_log" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/Java_heart_list/">Java核心(二)之集合</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Java核心(九)之日志
     </h1>
   
 
 
   
   
-<a href="/Java_heart_list/" class="archive-article-date">
-        <time datetime="2019-11-09T06:32:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/Java_heart_log/" class="archive-article-date">
+        <time datetime="2020-04-12T06:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
 </a>
 
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">977字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="1-接口继承关系和实现"><a href="#1-接口继承关系和实现" class="headerlink" title="1.接口继承关系和实现"></a>1.接口继承关系和实现</h2><p>集合类存放于 Java.util 包中，主要有 3 种：set(集）、list(列表包含 Queue）和 map(映射)。</p>
+    <h2 id="1-Slf4j"><a href="#1-Slf4j" class="headerlink" title="1. Slf4j"></a>1. Slf4j</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;slf4j 的全称是 Simple Loging Facade For Java，即它仅仅是一个为 Java 程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如 JDBC 一样，只是一种规则而已。所以单独的 slf4j 是不能工作的，必须搭配其他具体的日志实现方案，比如 apache 的 org.apache.log4j.Logger，jdk 自带的 java.util.logging.Logger 等。 </p>
+<a id="more"></a>
+
+<h2 id="2-Log4j"><a href="#2-Log4j" class="headerlink" title="2. Log4j"></a>2. Log4j</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Log4j 是 Apache 的一个开源项目，通过使用 Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI 组件，甚至是套接口服务器、NT 的事件记录器、UNIX Syslog 守护进程等；我们也可以控制每一条日志的输出格式；通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程。</p>
+<p>Log4j由三个重要的组成构成：日志记录器(Loggers)，输出端(Appenders)和日志格式化器(Layout)。 </p>
 <ol>
-<li><p>Collection：Collection 是集合 List、Set、Queue 的最基本的接口。</p>
+<li><p>Logger：控制要启用或禁用哪些日志记录语句，并对日志信息进行级别限制</p>
 </li>
-<li><p>Iterator：迭代器，可以通过迭代器遍历集合中的数据 </p>
+<li><p>Appenders : 指定了日志将打印到控制台还是文件中</p>
 </li>
-<li><p>Map：是映射表的基础接口 </p>
+<li><p>Layout : 控制日志信息的显示格式</p>
 </li>
 </ol>
-    
-    <a class="article-more-a" href="/Java_heart_list/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/Java_heart_list/">阅读全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java_heart_JVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/Java_heart_JVM/">Java核心(一)之JVM</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/Java_heart_JVM/" class="archive-article-date">
-        <time datetime="2019-10-24T07:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>(1) 基本概念：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;JVM是可运行Java代码的假想计算机 ，包括一套字节码指令集、一组寄存器、一个栈、 一个垃圾回收，堆 和 一个存储方法域。JVM 是运行在操作系统之上的，它与硬件没有直接的交互。 </p>
-    
-    <a class="article-more-a" href="/Java_heart_JVM/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/Java_heart_JVM/">阅读全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu-see-64or32bit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ubuntu-see-64or32bit/">查看ubuntu是32位还是64位</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/ubuntu-see-64or32bit/" class="archive-article-date">
-        <time datetime="2019-10-17T07:56:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1-查看操作系统是32位的还是64位的"><a href="#1-查看操作系统是32位的还是64位的" class="headerlink" title="1.查看操作系统是32位的还是64位的"></a>1.查看操作系统是32位的还是64位的</h2><p>在控制台输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo uname --m</span><br></pre></td></tr></table></figure>
-
-<p><strong><em>回车后：</em></strong><br><strong><em>如果显示i686,则表示安装了32位操作系统</em></strong><br><strong><em>如果显示 x86_64，则表示安装了64位操作系统</em></strong></p>
-    
-    <a class="article-more-a" href="/ubuntu-see-64or32bit/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ubuntu-see-64or32bit/">阅读全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jQuery-validator-addMethod" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/jQuery-validator-addMethod/">jQuery.validator.addMethod自定义验证规则</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/jQuery-validator-addMethod/" class="archive-article-date">
-        <time datetime="2019-10-09T05:51:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;jQuery.validate是一款非常不错的表单验证工具，简单易上手，而且能达到很好的体验效果</p>
-<h2 id="1-用前必备"><a href="#1-用前必备" class="headerlink" title="1.用前必备"></a>1.用前必备</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;官方网站：<a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/" target="_blank" rel="noopener">http://bassistance.de/jquery-plugins/jquery-plugin-validation/</a>    （注意下载最新版）<br>&nbsp;&nbsp;&nbsp;&nbsp;需要JQuery版本：1.2.6+, 兼容 1.3.2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"../js/jquery.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"../js/jquery.validate.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/jQuery-validator-addMethod/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Validate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端/" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/jQuery-validator-addMethod/">阅读全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu-tomcat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ubuntu-tomcat/">Ubuntu配置Tomcat80端口</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/ubuntu-tomcat/" class="archive-article-date">
-        <time datetime="2019-09-30T03:01:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>本地环境：</p>
-<ul>
-<li>ubuntu 18.04 LTS</li>
-<li>jdk 1.8.0_181</li>
-<li>tomcat 9.0.26</li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Log4j 中将要输出的 Log 信息定义了 5 种级别，依次为 DEBUG、INFO、WARN、ERROR 和 FATAL，当输出时，只有级别高过配置中规定的 级别的信息才能真正的输出，这样就很方便的来配置不同情况下要输出的内容，而不需要更改代码。 </p>
+<h2 id="3-LogBack"><a href="#3-LogBack" class="headerlink" title="3. LogBack"></a>3. LogBack</h2><p>简单地说，Logback 是一个 Java 领域的日志框架。它被认为是 Log4J 的继承人。 </p>
+<p>Logback 主要由三个模块组成：<strong>logback-core，logback-classic。logback-access</strong> </p>
+<p>logback-core 是其它模块的基础设施，其它模块基于它构建，显然，logback-core 提供了一些关键的通用机制。 </p>
+<p>logback-classic 的地位和作用等同于 Log4J，它也被认为是 Log4J 的一个改进版，并且它实现了简单日志门面 SLF4J； </p>
+<p>logback-access 主要作为一个与 Servlet 容器交互的模块，比如说 tomcat 或者 jetty，提供一些与 </p>
+<p>HTTP 访问相关的功能。 </p>
+<h3 id="3-1-Logback优点"><a href="#3-1-Logback优点" class="headerlink" title="3.1. Logback优点"></a>3.1. Logback优点</h3><ul>
+<li>同样的代码路径，Logback 执行更快 </li>
+<li>更充分的测试</li>
+<li>原生实现了 SLF4J API（Log4J 还需要有一个中间转换层） </li>
+<li>内容更丰富的文档</li>
+<li>支持 XML 或者 Groovy 方式配置 </li>
+<li>配置文件自动热加载</li>
+<li>从 IO 错误中优雅恢复 </li>
+<li>自动删除日志归档</li>
+<li>自动压缩日志成为归档文件</li>
+<li>支持 Prudent 模式，使多个 JVM 进程能记录同一个日志文件 </li>
+<li>支持配置文件中加入条件判断来适应不同的环境</li>
+<li>更强大的过滤器</li>
+<li>支持 SiftingAppender（可筛选 Appender） </li>
+<li>异常栈信息带有包信息 </li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; 使用Ubuntu 18.04 环境部署 Java Web 应用，在配置 Tomcat时，发现8080端口没问题，改为80端口后就报错，然后自己网上找了些资料改去改来，不是[“http-nio-80”]，就APR，要么就拒绝连接。明天前面都用得好好的！后来又网上看了很多，才发现问题，然后就写这篇记忆下。</p>
-    
-    <a class="article-more-a" href="/ubuntu-tomcat/#more">more >></a>
-    
-    
+<h2 id="4-ELk"><a href="#4-ELk" class="headerlink" title="4. ELk"></a>4. ELk</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;ELK 是软件集合 Elasticsearch、Logstash、Kibana 的简称，由这三个软件及其相关的组件可以打造大规模日志实时处理系统。</p>
+<ul>
+<li>Elasticsearch 是一个基于 Lucene 的、支持全文索引的分布式存储和索引引擎，主要负责将日志索引并存储起来，方便业务方检索查询。 </li>
+<li>Logstash 是一个日志收集、过滤、转发的中间件，主要负责将各条业务线的各类日志统一收集、过滤后，转发给 Elasticsearch 进行下一步处理。 </li>
+<li>Kibana 是一个可视化工具，主要负责查询 Elasticsearch 的数据并以可视化的方式展现给业务方，比如各类饼图、直方图、区域图等。 </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;( 1.Filebeat; 2.Filebeat; 3.Filebeat ) –&gt; Redis –&gt; Logstash –&gt; Elasticsearch  –&gt; Kibana </p>
+<h2 id="5-最后"><a href="#5-最后" class="headerlink" title="5. 最后"></a>5. 最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;java核心这部分，偶然所得的一份pdf文件，为不知名大佬所整理，在这表示感谢，本着学习所用的态度。</p>
 
     
 
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          QuietAir
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://quietair.gitee.io/Java_heart_log/" title="Java核心(九)之日志" target="_blank">https://quietair.gitee.io/Java_heart_log/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
     
 
   </div>
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -691,7 +338,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/后端/Linux/" class="article-tag-list-link color1">Linux</a>
+        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -699,16 +346,76 @@ var _hmt = _hmt || [];
 
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ubuntu-tomcat/">阅读全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/Java_heart_log/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/Java_heart_network/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java核心(八)之网络</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -723,18 +430,43 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Slf4j"><span class="toc-number">1.</span> <span class="toc-text">1. Slf4j</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Log4j"><span class="toc-number">2.</span> <span class="toc-text">2. Log4j</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LogBack"><span class="toc-number">3.</span> <span class="toc-text">3. LogBack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Logback优点"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. Logback优点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-ELk"><span class="toc-number">4.</span> <span class="toc-text">4. ELk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-最后"><span class="toc-number">5.</span> <span class="toc-text">5. 最后</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+<div id="SOHUCS" sid="Java_heart_log" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuKapdFi",
+        conf: "ae6e54fd592aff8193bf11988403c346"
+    });
+</script>
+</script>
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -774,8 +506,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
