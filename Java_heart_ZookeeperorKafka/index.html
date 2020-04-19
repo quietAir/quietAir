@@ -6,27 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quietair.gitee.io">
-  <title>Spring Boot与日志 | QuietAir</title>
+  <title>Java核心(十)之Zookeeper、Kafka | QuietAir</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1.日志框架一个统一的接口层；日志门面（日志的一个抽象层）； 给项目中导入具体的日志实现就行了；之前的日志框架都是实现的抽象层； 市面上的日志框架: JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j……">
-<meta name="keywords" content="SpringBoot">
+  <meta name="description" content="Zookeeper1. Zookeeper 概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Zookeeper 是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。Zookeeper 提供了一个类似于 Linux 文件系统的树形结构（可认为是轻量级的内存文件系统，但只适合存少量信息，完全不适合存储大量文件或者大文件），同时提供了对于每个节点的监控与通知机制。">
+<meta name="keywords" content="Zookeeper,Kafka">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot与日志">
-<meta property="og:url" content="https://quietair.gitee.io/spring-boot-logging/index.html">
+<meta property="og:title" content="Java核心(十)之Zookeeper、Kafka">
+<meta property="og:url" content="https://quietair.gitee.io/Java_heart_ZookeeperorKafka/index.html">
 <meta property="og:site_name" content="QuietAir">
-<meta property="og:description" content="1.日志框架一个统一的接口层；日志门面（日志的一个抽象层）； 给项目中导入具体的日志实现就行了；之前的日志框架都是实现的抽象层； 市面上的日志框架: JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j……">
+<meta property="og:description" content="Zookeeper1. Zookeeper 概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Zookeeper 是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。Zookeeper 提供了一个类似于 Linux 文件系统的树形结构（可认为是轻量级的内存文件系统，但只适合存少量信息，完全不适合存储大量文件或者大文件），同时提供了对于每个节点的监控与通知机制。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://quietair.gitee.io/images/spring-boot-logging/concrete-bindings.png">
-<meta property="og:image" content="https://quietair.gitee.io/images/spring-boot-logging/legacy.png">
-<meta property="og:image" content="https://quietair.gitee.io/images/spring-boot-logging/20200311190119.png">
-<meta property="og:image" content="https://quietair.gitee.io/images/spring-boot-logging/20200311190307.png">
-<meta property="og:updated_time" content="2020-04-04T12:45:52.858Z">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image003.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image005.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image007.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image009.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image011.jpg">
+<meta property="og:updated_time" content="2020-04-19T07:34:31.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot与日志">
-<meta name="twitter:description" content="1.日志框架一个统一的接口层；日志门面（日志的一个抽象层）； 给项目中导入具体的日志实现就行了；之前的日志框架都是实现的抽象层； 市面上的日志框架: JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j……">
-<meta name="twitter:image" content="https://quietair.gitee.io/images/spring-boot-logging/concrete-bindings.png">
+<meta name="twitter:title" content="Java核心(十)之Zookeeper、Kafka">
+<meta name="twitter:description" content="Zookeeper1. Zookeeper 概念&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Zookeeper 是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。Zookeeper 提供了一个类似于 Linux 文件系统的树形结构（可认为是轻量级的内存文件系统，但只适合存少量信息，完全不适合存储大量文件或者大文件），同时提供了对于每个节点的监控与通知机制。">
+<meta name="twitter:image" content="https://quietair.gitee.io/images/Java_heart_ZookeeperorKafka/clip_image003.gif">
   
     <link rel="alternative" href="/atom.xml" title="QuietAir" type="application/atom+xml">
   
@@ -209,14 +210,14 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring-boot-logging" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java_heart_ZookeeperorKafka" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot与日志
+      Java核心(十)之Zookeeper、Kafka
     </h1>
   
 
@@ -228,8 +229,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/spring-boot-logging/" class="archive-article-date">
-        <time datetime="2020-03-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
+<a href="/Java_heart_ZookeeperorKafka/" class="archive-article-date">
+        <time datetime="2020-04-18T06:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
 </a>
 
   
@@ -242,7 +243,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.8k字</span>
+      <span class="post-count">3.6k字</span>
     </span>
   </span>
 
@@ -251,7 +252,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -262,138 +263,142 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="1-日志框架"><a href="#1-日志框架" class="headerlink" title="1.日志框架"></a>1.日志框架</h2><p>一个统一的接口层；日志门面（日志的一个抽象层）；</p>
-<p>给项目中导入具体的日志实现就行了；之前的日志框架都是实现的抽象层；</p>
-<p>市面上的日志框架:</p>
-<p>JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j……</p>
+    <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h2 id="1-Zookeeper-概念"><a href="#1-Zookeeper-概念" class="headerlink" title="1. Zookeeper 概念"></a>1. Zookeeper 概念</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Zookeeper 是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。Zookeeper 提供了一个类似于 Linux 文件系统的树形结构（可认为是轻量级的内存文件系统，但只适合存少量信息，完全不适合存储大量文件或者大文件），同时提供了对于每个节点的监控与通知机制。</p>
 <a id="more"></a>
-<table>
-<thead>
-<tr>
-<th>日志门面  （日志的抽象层）</th>
-<th>日志实现</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><del>JCL（Jakarta  Commons Logging）</del>    SLF4j（Simple  Logging Facade for Java）    <strong><del>jboss-logging</del></strong></td>
-<td>Log4j  JUL（java.util.logging）  Log4j2  <strong>Logback</strong></td>
-</tr>
-</tbody></table>
-<p>左边选一个门面（抽象层）、右边来选一个实现；</p>
-<p>日志门面：  SLF4J；</p>
-<p>日志实现：Logback；</p>
-<p>SpringBoot：底层是Spring框架，Spring框架默认是用JCL；</p>
-<p>​    <strong>SpringBoot选用 SLF4j和logback；</strong></p>
-<h2 id="2-SLF4j使用"><a href="#2-SLF4j使用" class="headerlink" title="2.SLF4j使用"></a>2.SLF4j使用</h2><h3 id="2-1-如何在系统中使用SLF4j"><a href="#2-1-如何在系统中使用SLF4j" class="headerlink" title="2.1.如何在系统中使用SLF4j"></a>2.1.如何在系统中使用SLF4j</h3><p><a href="http://www.slf4j.org/manual.html" target="_blank" rel="noopener">用户文档</a></p>
-<p>以后开发的时候，日志记录方法的调用，不应该来直接调用日志的实现类，而是调用日志抽象层里面的方法；</p>
-<p>给系统里面导入slf4j的jar和  logback的实现jar</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(HelloWorld<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    logger.info(<span class="string">"Hello World"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>图示；</p>
-<p><img src="/images/spring-boot-logging/concrete-bindings.png" alt="images/concrete-bindings.png"></p>
-<p>每一个日志的实现框架都有自己的配置文件。使用slf4j以后，<strong>配置文件还是做成日志实现框架自己本身的配置文件；</strong></p>
-<h3 id="2-2-遗留问题"><a href="#2-2-遗留问题" class="headerlink" title="2.2.遗留问题"></a>2.2.遗留问题</h3><p>a（slf4j+logback）: Spring（commons-logging）、Hibernate（jboss-logging）、MyBatis、xxxx</p>
-<p>统一日志记录，即使是别的框架和我一起统一使用slf4j进行输出？</p>
-<p><img src="/images/spring-boot-logging/legacy.png" alt></p>
-<p><strong>如何让系统中所有的日志都统一到slf4j；</strong></p>
-<p>1、将系统中其他日志框架先排除出去；</p>
-<p>2、用中间包来替换原有的日志框架；</p>
-<p>3、我们导入slf4j其他的实现;</p>
-<h2 id="3-SpringBoot日志关系"><a href="#3-SpringBoot日志关系" class="headerlink" title="3.SpringBoot日志关系"></a>3.SpringBoot日志关系</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>SpringBoot使用它来做日志功能；</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>底层依赖关系</p>
-<p><img src="/images/spring-boot-logging/20200311190119.png" alt></p>
-<p>总结：</p>
-<p>​    1）、SpringBoot底层也是使用slf4j+logback的方式进行日志记录</p>
-<p>​    2）、SpringBoot也把其他的日志都替换成了slf4j；</p>
-<p>​    3）、中间替换包？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"rawtypes"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">LogFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> String UNSUPPORTED_OPERATION_IN_JCL_OVER_SLF4J = <span class="string">"http://www.slf4j.org/codes.html#unsupported_operation_in_jcl_over_slf4j"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> LogFactory logFactory = <span class="keyword">new</span> SLF4JLogFactory();</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/spring-boot-logging/20200311190307.png" alt></p>
-<p>​    4）、如果我们要引入其他框架？一定要把这个框架的默认日志依赖移除掉？</p>
-<p>​            Spring框架用的是commons-logging；</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，只需要把这个框架依赖的日志框架排除掉即可；</strong></p>
-<h2 id="4-日志使用"><a href="#4-日志使用" class="headerlink" title="4.日志使用"></a>4.日志使用</h2><h3 id="4-1-默认配置"><a href="#4-1-默认配置" class="headerlink" title="4.1.默认配置"></a>4.1.默认配置</h3><p>SpringBoot默认帮我们配置好了日志；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//记录器</span></span><br><span class="line">Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//System.out.println();</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//日志的级别；</span></span><br><span class="line">	<span class="comment">//由低到高   trace&lt;debug&lt;info&lt;warn&lt;error</span></span><br><span class="line">	<span class="comment">//可以调整输出的日志级别；日志就只会在这个级别以以后的高级别生效</span></span><br><span class="line">	logger.trace(<span class="string">"这是trace日志..."</span>);</span><br><span class="line">	logger.debug(<span class="string">"这是debug日志..."</span>);</span><br><span class="line">	<span class="comment">//SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别</span></span><br><span class="line">	logger.info(<span class="string">"这是info日志..."</span>);</span><br><span class="line">	logger.warn(<span class="string">"这是warn日志..."</span>);</span><br><span class="line">	logger.error(<span class="string">"这是error日志..."</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">--</span> </span></span><br><span class="line"><span class="tag">  日志输出格式：</span></span><br><span class="line"><span class="tag">%<span class="attr">d</span>表示日期时间，</span></span><br><span class="line"><span class="tag">%<span class="attr">thread</span>表示线程名，</span></span><br><span class="line"><span class="tag">%<span class="attr">-5level</span>：级别从左显示<span class="attr">5</span>个字符宽度</span></span><br><span class="line"><span class="tag">%<span class="attr">logger</span>&#123;<span class="attr">50</span>&#125; 表示<span class="attr">logger</span>名字最长<span class="attr">50</span>个字符，否则按照句点分割。 </span></span><br><span class="line"><span class="tag">%<span class="attr">msg</span>：日志消息，</span></span><br><span class="line"><span class="tag">%<span class="attr">n</span>是换行符</span></span><br><span class="line"><span class="tag">  <span class="attr">--</span>&gt;</span></span><br><span class="line">  %d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n</span><br></pre></td></tr></table></figure>
-
-<p>SpringBoot修改日志的默认配置：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">logging.level.com.atguigu</span>=<span class="string">trace</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#logging.path=(过时)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前项目下生成my.log日志</span></span><br><span class="line"><span class="meta">logging.file.name</span>=<span class="string">my.log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#logging.file=G:/springboot.log(过时)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#logging.file.path= 文件名  直接在跟目录下创建该文件且自动 帮你创建好 spring.log 文件</span></span><br><span class="line"><span class="meta">logging.file.name</span>=<span class="string">/log</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件</span></span><br><span class="line"><span class="meta">logging.path</span>=<span class="string">/spring/log(过时)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  在控制台输出的日志的格式</span></span><br><span class="line"><span class="meta">logging.pattern.console</span>=<span class="string">%d&#123;yyyy-MM-dd&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n</span></span><br><span class="line"><span class="comment"># 指定文件中日志输出的格式</span></span><br><span class="line"><span class="meta">logging.pattern.file</span>=<span class="string">%d&#123;yyyy-MM-dd&#125; === [%thread] === %-5level === %logger&#123;50&#125; ==== %msg%n</span></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>logging.file.name</th>
-<th>logging.file.name</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>(none)</td>
-<td>(none)</td>
-<td></td>
-<td>仅控制台记录。</td>
-</tr>
-<tr>
-<td>指定文件名</td>
-<td>(none)</td>
-<td>my.log</td>
-<td>写入指定的日志文件。名称可以是确切的位置，也可以相对于当前目录。</td>
-</tr>
-<tr>
-<td>(none)</td>
-<td>指定目录</td>
-<td>/var/log</td>
-<td>写入<code>spring.log</code>指定的目录。名称可以是确切的位置，也可以相对于当前目录。</td>
-</tr>
-</tbody></table>
-<h3 id="4-2-指定配置"><a href="#4-2-指定配置" class="headerlink" title="4.2.指定配置"></a>4.2.指定配置</h3><p><a href="https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/htmlsingle/#boot-features-logging" target="_blank" rel="noopener">官方日志文档</a>；给类路径下放上每个日志框架自己的配置文件即可；SpringBoot就不使用他默认配置的了</p>
-<table>
-<thead>
-<tr>
-<th>Logging System</th>
-<th>Customization</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Logback</td>
-<td><code>logback-spring.xml</code>, <code>logback-spring.groovy</code>, <code>logback.xml</code>, or <code>logback.groovy</code></td>
-</tr>
-<tr>
-<td>Log4j2</td>
-<td><code>log4j2-spring.xml</code> or <code>log4j2.xml</code></td>
-</tr>
-<tr>
-<td>JDK (Java Util Logging)</td>
-<td><code>logging.properties</code></td>
-</tr>
-</tbody></table>
-<p>官方建议将<code>-spring</code>变体用于日志记录配置（例如，<code>logback-spring.xml</code>而不是<code>logback.xml</code>）。如果使用标准配置位置，Spring将无法完全控制日志初始化。</p>
-<p>如果用logback.xml：直接就被日志框架识别了；</p>
-<p><strong>logback-spring.xml</strong>：日志框架就不直接加载日志的配置项，由SpringBoot解析日志配置，可以使用SpringBoot的高级Profile功能</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">springProfile</span> <span class="attr">name</span>=<span class="string">"staging"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- configuration to be enabled when the "staging" profile is active --&gt;</span></span><br><span class="line">  	可以指定某段配置只在某个环境下生效</span><br><span class="line"><span class="tag">&lt;/<span class="name">springProfile</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"stdout"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        日志输出格式：</span></span><br><span class="line"><span class="comment">			%d表示日期时间，</span></span><br><span class="line"><span class="comment">			%thread表示线程名，</span></span><br><span class="line"><span class="comment">			%-5level：级别从左显示5个字符宽度</span></span><br><span class="line"><span class="comment">			%logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分割。 </span></span><br><span class="line"><span class="comment">			%msg：日志消息，</span></span><br><span class="line"><span class="comment">			%n是换行符</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">springProfile</span> <span class="attr">name</span>=<span class="string">"dev"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ----&gt; [%thread] ---&gt; %-5level %logger&#123;50&#125; - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">springProfile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">springProfile</span> <span class="attr">name</span>=<span class="string">"!dev"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ==== [%thread] ==== %-5level %logger&#123;50&#125; - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">springProfile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果使用logback.xml作为日志配置文件，还要使用profile功能，会有以下错误:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no applicable action for [springProfile]</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-切换日志框架"><a href="#5-切换日志框架" class="headerlink" title="5.切换日志框架"></a>5.切换日志框架</h2><p>可以按照slf4j的日志适配图，进行相关的切换；</p>
-<p>slf4j+log4j的方式:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>切换为log4j2:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-最后"><a href="#6-最后" class="headerlink" title="6.最后"></a>6.最后</h2><p>​    此spring boot部分，来自尚硅谷教学视频，本着学习所用的态度。</p>
+<h2 id="2-Zookeeper-角色"><a href="#2-Zookeeper-角色" class="headerlink" title="2. Zookeeper 角色"></a>2. Zookeeper 角色</h2><p>Zookeeper 集群是一个基于主从复制的高可用集群，每个服务器承担如下三种角色中的一种</p>
+<h3 id="2-1-Leader"><a href="#2-1-Leader" class="headerlink" title="2.1. Leader"></a>2.1. Leader</h3><ol>
+<li><p>一个 Zookeeper 集群同一时间只会有一个实际工作的 Leader，它会发起并维护与各 Follwer 及 Observer 间的心跳。 </p>
+</li>
+<li><p>所有的写操作必须要通过 Leader 完成再由 Leader 将写操作广播给其它服务器。只要有超过半数节点（不包括 observeer 节点）写入成功，该写请求就会被提交（类 2PC 协议）。 </p>
+</li>
+</ol>
+<h3 id="2-2-Follower"><a href="#2-2-Follower" class="headerlink" title="2.2. Follower"></a>2.2. Follower</h3><ol>
+<li><p>一个 Zookeeper 集群可能同时存在多个 Follower，它会响应 Leader 的心跳， </p>
+</li>
+<li><p>Follower 可直接处理并返回客户端的读请求，同时会将写请求转发给 Leader 处理， </p>
+</li>
+<li><p>并且负责在 Leader 处理写请求时对请求进行投票。 </p>
+</li>
+</ol>
+<h3 id="2-3-Observer"><a href="#2-3-Observer" class="headerlink" title="2.3. Observer"></a>2.3. Observer</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;角色与 Follower 类似，但是无投票权。Zookeeper 需保证高可用和强一致性，为了支持更多的客户端，需要增加更多 Server；<u>Server 增多，投票阶段延迟增大，影响性能；引入 Observer， Observer 不参与投票； Observers 接受客户端的连接，并将写请求转发给 leader 节点；</u> 加入更多 Observer 节点，提高伸缩性，同时不影响吞吐率。 </p>
+<p><img src="/images/Java_heart_ZookeeperorKafka/clip_image003.gif" alt="img"> </p>
+<h3 id="2-4-ZAB-协议"><a href="#2-4-ZAB-协议" class="headerlink" title="2.4. ZAB 协议"></a>2.4. ZAB 协议</h3><p><strong>事务编号 Zxid（事务请求计数器+ epoch）</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在 ZAB ( ZooKeeper Atomic Broadcast , ZooKeeper 原子消息广播协议） 协议的事务编号 Zxid 设计中，Zxid 是一个 64 位的数字，其中低 32 位是一个简单的单调递增的计数器，<u>针对客户端每一个事务请求，计数器加 1；</u>而高 32 位则代表 Leader 周期 epoch 的编号，<u>每个当选产生一个新的 Leader 服务器，就会从这个 Leader 服务器上取出其本地日志中最大事务的 ZXID，并从中读取 epoch 值，然后加 1，以此作为新的 epoch，</u>并将低 32 位从 0 开始计数。 </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Zxid（Transaction id）类似于 RDBMS 中的事务 ID，用于标识一次更新操作的 Proposal（提议） ID。为了保证顺序性，该 zkid 必须单调递增。 </p>
+<p><strong>epoch</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;epoch：可以理解为当前集群所处的年代或者周期，每个 leader 就像皇帝，都有自己的年号，所以每次改朝换代，leader 变更之后，都会在前一个年代的基础上加 1。这样就算<u>旧的 leader 崩溃恢复之后，也没有人听他的了，因为 follower 只听从当前年代的 leader 的命令。</u> </p>
+<p><strong>Zab协议有两种模式-恢复模式（选主）、广播模式（同步）</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Zab协议有两种模式，它们分别是<u>恢复模式（选主）和广播模式（同步）</u>。当服务启动或者在领导者崩溃后，Zab 就进入了恢复模式，当领导者被选举出来，且大多数 Server 完成了和 leader 的状态同步以后，恢复模式就结束了。状态同步保证了 leader 和 Server 具有相同的系统状态。 </p>
+<p><strong>ZAB协议4阶段</strong> </p>
+<p><strong>Leader election（选举阶段-选出准Leader）</strong> </p>
+<ol>
+<li>Leader election（选举阶段）：节点在一开始都处于选举阶段，只要有一个节点得到超半数节点的票数，它就可以当选准 leader。只有到达 广播阶段（broadcast） 准 leader 才会成为真正的 leader。这一阶段的目的是就是为了选出一个准 leader，然后进入下一个阶段。 </li>
+</ol>
+<p><strong>Discovery（发现阶段-接受提议、生成epoch、接受epoch）</strong> </p>
+<ol start="2">
+<li>Discovery（发现阶段）：在这个阶段，followers 跟准 leader 进行通信，同步 followers 最近接收的事务提议。这个一阶段的主要目的是发现当前大多数节点接收的最新提议，并且准 leader 生成新的 epoch，让 followers 接受，更新它们的 accepted Epoch 一个 follower 只会连接一个 leader，如果有一个节点 f 认为另一个 follower p 是 leader，f 在尝试连接 p 时会被拒绝，f 被拒绝之后，就会进入重新选举阶段。 </li>
+</ol>
+<p><strong>Synchronization（同步阶段-同步follower副本）</strong> </p>
+<ol start="3">
+<li>Synchronization（同步阶段）：同步阶段主要是利用 leader 前一阶段获得的最新提议历史，同步集群中所有的副本。只有当 大多数节点都同步完成，准 leader 才会成为真正的 leader。 follower 只会接收 zxid 比自己的 lastZxid 大的提议。 </li>
+</ol>
+<p><strong>Broadcast（广播阶段-leader消息广播）</strong> </p>
+<ol start="4">
+<li>Broadcast（广播阶段）：到了这个阶段，Zookeeper 集群才能正式对外提供事务服务，并且 leader 可以进行消息广播。同时如果有新的节点加入，还需要对新节点进行同步。 </li>
+</ol>
+<p>ZAB 提交事务并不像 2PC 一样需要全部 follower 都 ACK，只需要得到超过半数的节点的 ACK 就可以了。 </p>
+<p><strong>ZAB协议JAVA 实现（FLE-发现阶段和同步合并为 Recovery Phase（恢复阶段））</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;协议的 Java 版本实现跟上面的定义有些不同，选举阶段使用的是 Fast Leader Election（FLE），它包含了 选举的发现职责。因为 FLE 会选举拥有最新提议历史的节点作为 leader，这样就省去了发现最新提议的步骤。实际的实现将 发现阶段 和 同步合并为 Recovery Phase（恢复阶段）。所以，ZAB 的实现只有三个阶段：Fast Leader Election；Recovery Phase；Broadcast Phase。 </p>
+<h3 id="2-5-投票机制"><a href="#2-5-投票机制" class="headerlink" title="2.5. 投票机制"></a>2.5. 投票机制</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<u>每个 sever 首先给自己投票，然后用自己的选票和其他 sever 选票对比，权重大的胜出，使用权重较大的更新自身选票箱。</u>具体选举过程如下：</p>
+<ol>
+<li><p>每个 Server 启动以后<strong>都询问其它的 Server 它要投票给谁</strong>。对于其他 server 的询问， server 每次根据自己的状态都回复自己推荐的 leader 的 id 和上一次处理事务的 zxid（系统启动时每个 server 都会推荐自己） </p>
+</li>
+<li><p>收到所有 Server 回复以后，就<strong>计算出 zxid 最大的哪个 Server</strong>，并将这个 Server 相关信息设置成下一次要投票的 Server。 </p>
+</li>
+<li><p>计算这过程中<strong>获得票数最多的的 sever 为获胜者</strong>，如果获胜者的票数超过半数，则改 server 被选为 leader。否则，继续这个过程，直到 leader 被选举出来  </p>
+</li>
+<li><p>leader 就会开始等待 server 连接</p>
+</li>
+<li><p>Follower 连接 leader，将最大的 zxid 发送给 leader </p>
+</li>
+<li><p>Leader 根据 follower 的 zxid 确定同步点，至此选举阶段完成。 </p>
+</li>
+<li><p>选举阶段完成 Leader 同步后通知 follower 已经成为 uptodate 状态 </p>
+</li>
+<li><p>Follower 收到 uptodate 消息后，又可以重新接受 client 的请求进行服务了 </p>
+</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;目前有 5 台服务器，每台服务器均没有数据，它们的编号分别是 1,2,3,4,5,按编号依次启动，它们的选择举过程如下： </p>
+<ol>
+<li><p>服务器 1 启动，给自己投票，然后发投票信息，由于其它机器还没有启动所以它收不到反馈信息，服务器 1 的状态一直属于 Looking。 </p>
+</li>
+<li><p>服务器 2 启动，给自己投票，同时与之前启动的服务器 1 交换结果，由于服务器 2 的编号大所以服务器 2 胜出，但此时投票数没有大于半数，所以两个服务器的状态依然是LOOKING。 </p>
+</li>
+<li><p>服务器 3 启动，给自己投票，同时与之前启动的服务器 1,2 交换信息，由于服务器 3 的编号最大所以服务器 3 胜出，此时投票数正好大于半数，所以服务器 3 成为领导者，服务器1,2 成为小弟。</p>
+</li>
+<li><p>服务器 4 启动，给自己投票，同时与之前启动的服务器 1,2,3 交换信息，尽管服务器 4 的编号大，但之前服务器 3 已经胜出，所以服务器 4 只能成为小弟。 </p>
+</li>
+<li><p>服务器 5 启动，后面的逻辑同服务器 4 成为小弟。 </p>
+</li>
+</ol>
+<h2 id="3-Zookeeper工作原理（原子广播）"><a href="#3-Zookeeper工作原理（原子广播）" class="headerlink" title="3. Zookeeper工作原理（原子广播）"></a>3. Zookeeper工作原理（原子广播）</h2><ol>
+<li><p><strong>Zookeeper 的核心是原子广播</strong>，这个机制保证了各个 server 之间的同步。实现这个机制的协议叫做 Zab 协议。Zab 协议有两种模式，它们分别是恢复模式和广播模式。 </p>
+</li>
+<li><p>当服务启动或者在领导者崩溃后，Zab 就进入了恢复模式，当领导者被选举出来，且大多数 server 的完成了和 leader 的状态同步以后，恢复模式就结束了。</p>
+</li>
+<li><p>状态同步保证了 leader 和 server 具有相同的系统状态 </p>
+</li>
+<li><p><strong>一旦 leader 已经和多数的 follower 进行了状态同步后，他就可以开始广播消息了</strong>，即进入广播状态。这时候当一个 server 加入 zookeeper 服务中，它会在恢复模式下启动，发现 leader，并和 leader 进行状态同步。待到同步结束，它也参与消息广播。Zookeeper 服务一直维持在 Broadcast 状态，直到 leader 崩溃了或者 leader 失去了大部分的 followers 支持。 </p>
+</li>
+<li><p>广播模式需要保证 proposal 被按顺序处理，因此 zk 采用了递增的事务 id 号(zxid)来保证。所有的提议(proposal)都在被提出的时候加上了 zxid。 </p>
+</li>
+<li><p>实现中 zxid 是一个 64 为的数字，它高 32 位是 epoch 用来标识 leader 关系是否改变，每次一个 leader 被选出来，它都会有一个新的 epoch。低 32 位是个递增计数。 </p>
+</li>
+<li><p>当 leader 崩溃或者 leader 失去大多数的 follower，这时候 zk 进入恢复模式，恢复模式需要重新选举出一个新的 leader，让所有的 server 都恢复到一个正确的状态。 </p>
+</li>
+</ol>
+<h2 id="4-Znode有四种形式的目录节点"><a href="#4-Znode有四种形式的目录节点" class="headerlink" title="4. Znode有四种形式的目录节点"></a>4. Znode有四种形式的目录节点</h2><ol>
+<li><p>PERSISTENT：持久的节点。 </p>
+</li>
+<li><p>EPHEMERAL：暂时的节点。 </p>
+</li>
+<li><p>PERSISTENT_SEQUENTIAL：持久化顺序编号目录节点。 </p>
+</li>
+<li><p>EPHEMERAL_SEQUENTIAL：暂时化顺序编号目录节点。 </p>
+</li>
+</ol>
+<h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h2 id="5-Kafka概念"><a href="#5-Kafka概念" class="headerlink" title="5. Kafka概念"></a>5. Kafka概念</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Kafka 是一种高吞吐量、分布式、基于发布/订阅的消息系统，最初由 LinkedIn 公司开发，使用 Scala 语言编写，目前是 Apache 的开源项目。 </p>
+<ol>
+<li><p>broker：Kafka 服务器，负责消息存储和转发</p>
+</li>
+<li><p>topic：消息类别，Kafka 按照 topic 来分类消息 </p>
+</li>
+<li><p>partition：topic 的分区，一个 topic 可以包含多个 partition，topic 消息保存在各个 partition 上 </p>
+</li>
+<li><p>offset：消息在日志中的位置，可以理解是消息在 partition 上的偏移量，也是代表该消息的唯一序号 </p>
+</li>
+<li><p>Producer：消息生产者 </p>
+</li>
+<li><p>Consumer：消息消费者 </p>
+</li>
+<li><p>Consumer Group：消费者分组，每个 Consumer 必须属于一个 group </p>
+</li>
+<li><p>Zookeeper：保存着集群 broker、topic、partition 等 meta 数据；另外，还负责 broker 故障发现，partition leader 选举，负载均衡等功能 </p>
+</li>
+</ol>
+<p><img src="/images/Java_heart_ZookeeperorKafka/clip_image005.gif" alt="img"> </p>
+<h2 id="6-Kafka-数据存储设计"><a href="#6-Kafka-数据存储设计" class="headerlink" title="6. Kafka 数据存储设计"></a>6. Kafka 数据存储设计</h2><h3 id="6-1-partition的数据文件（offset，MessageSize，data）"><a href="#6-1-partition的数据文件（offset，MessageSize，data）" class="headerlink" title="6.1. partition的数据文件（offset，MessageSize，data）"></a>6.1. partition的数据文件（offset，MessageSize，data）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;partition中的每条Message包含了以下三个属性：offset，MessageSize，data，其中<u>offset表示 Message 在这个 partition 中的偏移量，offset 不是该 Message 在 partition 数据文件中的实际存储位置，而是逻辑上一个值</u>，它唯一确定了partition中的一条Message，可以认为offset是 partition 中 Message 的 id；MessageSize 表示消息内容 data 的大小；data 为 Message 的具体内容。 </p>
+<h3 id="6-2-数据文件分段-segment（顺序读写、分段命令、二分查找）"><a href="#6-2-数据文件分段-segment（顺序读写、分段命令、二分查找）" class="headerlink" title="6.2. 数据文件分段 segment（顺序读写、分段命令、二分查找）"></a>6.2. 数据文件分段 segment（顺序读写、分段命令、二分查找）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;partition 物理上由多个 segment 文件组成，每个 segment 大小相等，顺序读写。每个 segment 数据文件以该段中最小的 offset 命名，文件扩展名为.log。这样在查找指定 offset 的 Message 的时候，用二分查找就可以定位到该 Message 在哪个 segment 数据文件中。 </p>
+<h3 id="6-3-数据文件索引（分段索引、稀疏存储）"><a href="#6-3-数据文件索引（分段索引、稀疏存储）" class="headerlink" title="6.3. 数据文件索引（分段索引、稀疏存储）"></a>6.3. 数据文件索引（分段索引、稀疏存储）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Kafka 为每个分段后的数据文件建立了索引文件，文件名与数据文件的名字是一样的，只是文件扩展名为.index。index 文件中并没有为数据文件中的每条 Message 建立索引，而是采用了稀疏存储的方式，每隔一定字节的数据建立一条索引。这样避免了索引文件占用过多的空间，从而可以将索引文件保留在内存中。</p>
+<p><img src="/images/Java_heart_ZookeeperorKafka/clip_image007.gif" alt="img"> </p>
+<h2 id="7-生产者设计"><a href="#7-生产者设计" class="headerlink" title="7. 生产者设计"></a>7. 生产者设计</h2><h3 id="7-1-负载均衡（partition-会均衡分布到不同-broker-上）"><a href="#7-1-负载均衡（partition-会均衡分布到不同-broker-上）" class="headerlink" title="7.1. 负载均衡（partition 会均衡分布到不同 broker 上）"></a>7.1. 负载均衡（partition 会均衡分布到不同 broker 上）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于消息 topic 由多个 partition 组成，且 <strong>partition 会均衡分布到不同 broker 上，因此，为了有效利用 broker 集群的性能，提高消息的吞吐量</strong>，producer 可以通过随机或者 hash 等方式，将消息平均发送到多个 partition 上，以实现负载均衡。</p>
+<p><img src="/images/Java_heart_ZookeeperorKafka/clip_image009.gif" alt="img"> </p>
+<h3 id="7-2-批量发送"><a href="#7-2-批量发送" class="headerlink" title="7.2. 批量发送"></a>7.2. 批量发送</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;是提高消息吞吐量重要的方式，Producer 端可以在内存中合并多条消息后，<strong>以一次请求的方式发送了批量的消息给 broker</strong>，从而大大减少 broker 存储消息的 IO 操作次数。但也一定程度上影响了消息的实时性，相当于以时延代价，换取更好的吞吐量。 </p>
+<h3 id="7-3-压缩（GZIP或-Snappy）"><a href="#7-3-压缩（GZIP或-Snappy）" class="headerlink" title="7.3. 压缩（GZIP或 Snappy）"></a>7.3. 压缩（GZIP或 Snappy）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Producer 端可以通过 GZIP 或 Snappy 格式对消息集合进行压缩。Producer 端进行压缩之后，在 Consumer 端需进行解压。压缩的好处就是减少传输的数据量，减轻对网络传输的压力，在对大数据处理上，瓶颈往往体现在网络上而不是 CPU（压缩和解压会耗掉部分 CPU 资源）。 </p>
+<h2 id="8-消费者设计"><a href="#8-消费者设计" class="headerlink" title="8. 消费者设计"></a>8. 消费者设计</h2><p><img src="/images/Java_heart_ZookeeperorKafka/clip_image011.jpg" alt="img"> </p>
+<h3 id="8-1-Consumer-Group"><a href="#8-1-Consumer-Group" class="headerlink" title="8.1. Consumer Group"></a>8.1. Consumer Group</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;同一 Consumer Group 中的多个 Consumer 实例，不同时消费同一个 partition，等效于队列模式。partition 内消息是有序的，Consumer 通过 pull 方式消费消息。Kafka 不删除已消费的消息 对于 partition，顺序读写磁盘数据，以时间复杂度 O(1)方式提供消息持久化能力。 </p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;java核心这部分，偶然所得的一份pdf文件，为不知名大佬所整理，在这表示感谢，本着学习所用的态度。</p>
 
     
 
@@ -408,7 +413,7 @@ var _hmt = _hmt || [];
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://quietair.gitee.io/spring-boot-logging/" title="Spring Boot与日志" target="_blank">https://quietair.gitee.io/spring-boot-logging/</a>
+          <a href="https://quietair.gitee.io/Java_heart_ZookeeperorKafka/" title="Java核心(十)之Zookeeper、Kafka" target="_blank">https://quietair.gitee.io/Java_heart_ZookeeperorKafka/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -427,7 +432,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kafka</a>
         		</li>
       		
 		</ul>
@@ -498,7 +507,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/spring-boot-logging/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/Java_heart_ZookeeperorKafka/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -513,18 +522,9 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
-    <a href="/Java_heart_microservice/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java核心(六)之微服务
-        
-      </div>
-    </a>
   
-  
-    <a href="/spring-boot-configuration/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot配置文件解析</div>
+    <a href="/Java_heart_log/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java核心(九)之日志</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -551,7 +551,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-日志框架"><span class="toc-number">1.</span> <span class="toc-text">1.日志框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SLF4j使用"><span class="toc-number">2.</span> <span class="toc-text">2.SLF4j使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-如何在系统中使用SLF4j"><span class="toc-number">2.1.</span> <span class="toc-text">2.1.如何在系统中使用SLF4j</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-遗留问题"><span class="toc-number">2.2.</span> <span class="toc-text">2.2.遗留问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SpringBoot日志关系"><span class="toc-number">3.</span> <span class="toc-text">3.SpringBoot日志关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-日志使用"><span class="toc-number">4.</span> <span class="toc-text">4.日志使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-默认配置"><span class="toc-number">4.1.</span> <span class="toc-text">4.1.默认配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-指定配置"><span class="toc-number">4.2.</span> <span class="toc-text">4.2.指定配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-切换日志框架"><span class="toc-number">5.</span> <span class="toc-text">5.切换日志框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-最后"><span class="toc-number">6.</span> <span class="toc-text">6.最后</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zookeeper"><span class="toc-number">1.</span> <span class="toc-text">Zookeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Zookeeper-概念"><span class="toc-number">1.1.</span> <span class="toc-text">1. Zookeeper 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zookeeper-角色"><span class="toc-number">1.2.</span> <span class="toc-text">2. Zookeeper 角色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Leader"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1. Leader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Follower"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2. Follower</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Observer"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3. Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-ZAB-协议"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4. ZAB 协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-投票机制"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5. 投票机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Zookeeper工作原理（原子广播）"><span class="toc-number">1.3.</span> <span class="toc-text">3. Zookeeper工作原理（原子广播）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Znode有四种形式的目录节点"><span class="toc-number">1.4.</span> <span class="toc-text">4. Znode有四种形式的目录节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka"><span class="toc-number">2.</span> <span class="toc-text">Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Kafka概念"><span class="toc-number">2.1.</span> <span class="toc-text">5. Kafka概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Kafka-数据存储设计"><span class="toc-number">2.2.</span> <span class="toc-text">6. Kafka 数据存储设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-partition的数据文件（offset，MessageSize，data）"><span class="toc-number">2.2.1.</span> <span class="toc-text">6.1. partition的数据文件（offset，MessageSize，data）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-数据文件分段-segment（顺序读写、分段命令、二分查找）"><span class="toc-number">2.2.2.</span> <span class="toc-text">6.2. 数据文件分段 segment（顺序读写、分段命令、二分查找）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-数据文件索引（分段索引、稀疏存储）"><span class="toc-number">2.2.3.</span> <span class="toc-text">6.3. 数据文件索引（分段索引、稀疏存储）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-生产者设计"><span class="toc-number">2.3.</span> <span class="toc-text">7. 生产者设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-负载均衡（partition-会均衡分布到不同-broker-上）"><span class="toc-number">2.3.1.</span> <span class="toc-text">7.1. 负载均衡（partition 会均衡分布到不同 broker 上）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-批量发送"><span class="toc-number">2.3.2.</span> <span class="toc-text">7.2. 批量发送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-压缩（GZIP或-Snappy）"><span class="toc-number">2.3.3.</span> <span class="toc-text">7.3. 压缩（GZIP或 Snappy）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-消费者设计"><span class="toc-number">2.4.</span> <span class="toc-text">8. 消费者设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-Consumer-Group"><span class="toc-number">2.4.1.</span> <span class="toc-text">8.1. Consumer Group</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -564,7 +564,7 @@ var _hmt = _hmt || [];
 
 
 
-<div id="SOHUCS" sid="spring-boot-logging" ></div> 
+<div id="SOHUCS" sid="Java_heart_ZookeeperorKafka" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
