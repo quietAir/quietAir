@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quietair.gitee.io">
-  <title>Archives: 2020/3 | QuietAir</title>
+  <title>Java核心(十六)之一致性算法 | QuietAir</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="QuietAir">
-<meta property="og:url" content="https://quietair.gitee.io/archives/2020/03/index.html">
+  <meta name="description" content="1. Paxos&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。zookeeper 使用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java核心(十六)之一致性算法">
+<meta property="og:url" content="https://quietair.gitee.io/Java_heart_Algorithm/index.html">
 <meta property="og:site_name" content="QuietAir">
+<meta property="og:description" content="1. Paxos&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。zookeeper 使用的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_Algorithm/clip_image003.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_Algorithm/clip_image005.gif">
+<meta property="og:image" content="https://quietair.gitee.io/images/Java_heart_Algorithm/clip_image007.gif">
+<meta property="og:updated_time" content="2020-05-25T05:58:06.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QuietAir">
+<meta name="twitter:title" content="Java核心(十六)之一致性算法">
+<meta name="twitter:description" content="1. Paxos&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。zookeeper 使用的">
+<meta name="twitter:image" content="https://quietair.gitee.io/images/Java_heart_Algorithm/clip_image003.gif">
   
     <link rel="alternative" href="/atom.xml" title="QuietAir" type="application/atom+xml">
   
@@ -199,53 +207,200 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java_heart_Algorithm" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/Java_heart_microservice/" class="archive-article-date">
-        <time datetime="2020-03-21T05:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/Java_heart_microservice/">Java核心(六)之微服务</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Java核心(十六)之一致性算法
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-          
+<a href="/Java_heart_Algorithm/" class="archive-article-date">
+        <time datetime="2020-05-24T04:43:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">3.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">13分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1-Paxos"><a href="#1-Paxos" class="headerlink" title="1. Paxos"></a>1. Paxos</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。zookeeper 使用的 zab 算法是该算法的一个实现。 在 Paxos 算法中，有三种角色：Proposer，Acceptor，Learners </p>
+<a id="more"></a>
+
+<p><strong>Paxos</strong> 三种角色：<strong>Proposer</strong>，<strong>Acceptor</strong>，<strong>Learners</strong> </p>
+<p><strong>Proposer</strong>： </p>
+<p>只要 Proposer 发的提案被半数以上 Acceptor 接受，Proposer 就认为该提案里的 value 被选定了。 </p>
+<p><strong>Acceptor</strong>： </p>
+<p>只要 Acceptor 接受了某个提案，Acceptor 就认为该提案里的 value 被选定了。 </p>
+<p><strong>Learner</strong>： </p>
+<p>Acceptor 告诉 Learner 哪个 value 被选定，Learner 就认为那个 value 被选定。 </p>
+<p><strong>Paxos</strong> 算法分为两个阶段。具体如下： </p>
+<p><u>阶段一</u>（准<strong>leader</strong>确定 ）： </p>
+<p>(a) Proposer选择一个提案编号N，然后向半数以上的Acceptor发送编号为N的Prepare请求。 </p>
+<p>(b) 如果一个 Acceptor 收到一个编号为 N 的 Prepare 请求，且 N 大于该 Acceptor 已经响应过的所有 Prepare 请求的编号，那么它就会将它已经接受过的编号最大的提案（如果有的话）作为响应反馈给 Proposer，同时该 Acceptor 承诺不再接受任何编号小于 N 的提案。 </p>
+<p><u>阶段二</u>（<strong>leader</strong>确认）： </p>
+<p>(a) 如果 Proposer 收到半数以上 Acceptor 对其发出的编号为 N 的 Prepare 请求的响应，那么它就会发送一个针对[N,V]提案的 Accept 请求给半数以上的 Acceptor。注意：V 就是收到的响应中编号最大的提案的 value，如果响应中不包含任何提案，那么 V 就由 Proposer 自己决定。 </p>
+<p>(b) 如果 Acceptor 收到一个针对编号为 N 的提案的 Accept 请求，只要该 Acceptor 没有对编号大于 N 的 Prepare 请求做出过响应，它就接受该提案。 </p>
+<h2 id="2-Zab"><a href="#2-Zab" class="headerlink" title="2. Zab"></a>2. Zab</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;ZAB( ZooKeeper Atomic Broadcast , ZooKeeper 原子消息广播协议）协议包括两种基本的模式：崩溃恢复和消息广播</p>
+<ol>
+<li><p>当整个服务框架在启动过程中，或是当 Leader 服务器出现网络中断崩溃退出与重启等异常情况时，ZAB 就会进入恢复模式并选举产生新的 Leader 服务器。 </p>
+</li>
+<li><p>当选举产生了新的 Leader 服务器，同时集群中已经有过半的机器与该 Leader 服务器完成了状态同步之后，ZAB 协议就会退出崩溃恢复模式，进入消息广播模式。</p>
+</li>
+<li><p>当有新的服务器加入到集群中去，如果此时集群中已经存在一个 Leader 服务器在负责进行消息广播，那么新加入的服务器会自动进入数据恢复模式，找到 Leader 服务器，并与其进行数据同步，然后一起参与到消息广播流程中去。 以上其实大致经历了三个步骤： </p>
+</li>
+</ol>
+<p>1、<strong>崩溃恢复：主要就是Leader选举过程</strong> </p>
+<p>2、<strong>数据同步：Leader服务器与其他服务器进行数据同步</strong> </p>
+<p>3、<strong>消息广播：Leader服务器将数据发送给其他服务器 说明：zookeeper 章节对该协议有详细描述</strong>。 </p>
+<h2 id="3-Raft"><a href="#3-Raft" class="headerlink" title="3. Raft"></a>3. Raft</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;与 Paxos 不同 Raft 强调的是易懂（Understandability），Raft 和 Paxos 一样只要保证 n/2+1 节点正常就能够提供服务；raft 把算法流程分为三个子问题：选举（Leader election）、日志复制（Log replication）、安全性（Safety）三个子问题。 </p>
+<h3 id="3-1-角色"><a href="#3-1-角色" class="headerlink" title="3.1. 角色"></a>3.1. 角色</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Raft 把集群中的节点分为三种状态：<strong>Leader、 Follower 、Candidate</strong>，理所当然每种状态负责的任务也是不一样的，Raft 运行时提供服务的时候只存在 Leader 与 Follower 两种状态； </p>
+<p><strong>Leader（领导者-日志管理）</strong> </p>
+<p>负责日志的同步管理，处理来自客户端的请求，与 Follower 保持这 heartBeat 的联系； </p>
+<p><strong>Follower （追随者-日志同步）</strong> </p>
+<p>刚启动时所有节点为Follower状态，响应Leader的日志同步请求，响应Candidate的请求，</p>
+<p>把请求到 Follower 的事务转发给 Leader； </p>
+<p><strong>Candidate（候选者-负责选票）</strong> </p>
+<p>负责选举投票，Raft 刚启动时由一个节点从 Follower 转为 Candidate 发起选举，选举出</p>
+<p>Leader 后从 Candidate 转为 Leader 状态； </p>
+<h3 id="3-2-Term（任期）"><a href="#3-2-Term（任期）" class="headerlink" title="3.2. Term（任期）"></a>3.2. Term（任期）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;在 Raft 中使用了一个可以理解为周期（第几届、任期）的概念，用 Term 作为一个周期，每个 Term 都是一个连续递增的编号，每一轮选举都是一个 Term 周期，在一个 Term 中只能产生一个 Leader；当某节点收到的请求中 Term 比当前 Term 小时则拒绝该请求。 </p>
+<h3 id="3-3-选举（Election）"><a href="#3-3-选举（Election）" class="headerlink" title="3.3. 选举（Election）"></a>3.3. 选举（Election）</h3><p><strong>选举定时器</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Raft 的选举由定时器来触发，<u>每个节点的选举定时器时间都是不一样的</u>，开始时状态都为Follower 某个节点定时器触发选举后 Term 递增，状态由 Follower 转为 Candidate，向其他节点发起 RequestVote RPC 请求，这时候有三种可能的情况发生：</p>
+<p> 1：该RequestVote请求接收到n/2+1（过半数）个节点的投票，从Candidate 转为Leader，向其他节点发送 heartBeat 以保持 Leader 的正常运转。 </p>
+<p> 2：在此期间如果收到其他节点发送过来的 AppendEntries RPC 请求，如该节点的 Term 大则当前节点转为 Follower，否则保持 Candidate 拒绝该请求。 </p>
+<p> 3：Election timeout 发生则 Term 递增，重新发起选举 </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在一个 Term 期间每个节点只能投票一次，<u>所以当有多个 Candidate 存在时就会出现每个 Candidate 发起的选举都存在接收到的投票数都不过半的问题，这时每个 Candidate 都将 Term 递增、重启定时器并重新发起选举，由于每个节点中定时器的时间都是随机的，所以就不会多次存在有多个 Candidate 同时发起投票的问题</u>。  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在 Raft 中当接收到客户端的日志（事务请求）后先把该日志追加到本地的 Log 中，然后通过 heartbeat 把该 Entry 同步给其他 Follower，Follower 接收到日志后记录日志然后向 Leader 发送 ACK，当 Leader 收到大多数（n/2+1）Follower 的 ACK 信息后将该日志设置为已提交并追加到本地磁盘中，通知客户端并在下个 heartbeat 中 Leader 将通知所有的 Follower 将该日志存储在自己的本地磁盘中。 </p>
+<h3 id="3-4-安全性（Safety）"><a href="#3-4-安全性（Safety）" class="headerlink" title="3.4. 安全性（Safety）"></a>3.4. 安全性（Safety）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;安全性是用于保证每个节点都执行相同序列的安全机制如当某个 <u>Follower 在当前 Leader commit Log 时变得不可用了，稍后可能该 Follower 又会倍选举为 Leader，这时新 Leader 可能会用新的 Log 覆盖先前已 committed 的 Log</u>，这就是导致节点执行不同序列；Safety 就是用于保证选举出来的 Leader 一定包含先前 commited Log 的机制；  </p>
+<p>选举安全性（Election Safety）：每个 Term 只能选举出一个 Leader </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Leader 完整性（Leader Completeness）：这里所说的<strong>完整性是指 Leader 日志的完整性</strong>， Raft 在选举阶段就使用 Term 的判断用于保证完整性：当请求投票的该 Candidate 的 Term 较大或 Term 相同 Index 更大则投票，该节点将容易变成 leader。 </p>
+<h3 id="3-5-raft-协议和-zab-协议区别"><a href="#3-5-raft-协议和-zab-协议区别" class="headerlink" title="3.5. raft 协议和 zab 协议区别"></a>3.5. raft 协议和 zab 协议区别</h3><p><strong>相同点</strong> </p>
+<ul>
+<li>采用 quorum 来确定整个系统的一致性,这个 quorum 一般实现是集群中半数以上的服务器, §    zookeeper 里还提供了带权重的 quorum 实现. </li>
+<li>都由 leader 来发起写操作. </li>
+<li>都采用心跳检测存活性 </li>
+<li>leader election 都采用先到先得的投票方式 </li>
+</ul>
+<p><strong>不同点</strong> </p>
+<ul>
+<li>zab 用的是 epoch 和 count 的组合来唯一表示一个值, 而 raft 用的是 term 和 index </li>
+<li>zab 的 follower 在投票给一个 leader 之前必须和 leader 的日志达成一致,而 raft 的 follower 则简单地说是谁的 term 高就投票给谁 </li>
+<li>raft 协议的心跳是从 leader 到 follower, 而 zab 协议则相反 </li>
+<li>raft 协议数据只有单向地从 leader 到 follower(成为 leader 的条件之一就是拥有最新的 log), 而 zab 协议在 discovery 阶段, 一个 prospective leader 需要将自己的 log 更新为 quorum 里面最新的 log,然后才好在 synchronization 阶段将 quorum 里的其他机器的 log 都同步到一致. </li>
+</ul>
+<h2 id="4-NWR"><a href="#4-NWR" class="headerlink" title="4. NWR"></a>4. NWR</h2><p><strong>N：在分布式存储系统中，有多少份备份数据</strong> </p>
+<p><strong>W：代表一次成功的更新操作要求至少有W份数据写入成功</strong> </p>
+<p><strong>R： 代表一次成功的读数据操作要求至少有R份数据成功读取</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;NWR值的不同组合会产生不同的一致性效果，当W+R&gt;N的时候，整个系统对于客户端来讲能保证强一致性。而如果 R+W&lt;=N，则无法保证数据的强一致性。以常见的 N=3、W=2、R=2 为例： </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;N=3，表示，任何一个对象都必须有三个副本（Replica），W=2 表示，对数据的修改操作（Write）只需要在 3 个 Replica 中的 2 个上面完成就返回，R=2 表示，从三个对象中要读取到 2 个数据对象，才能返回。 </p>
+<p><img src="/images/Java_heart_Algorithm/clip_image003.gif" alt="img"> </p>
+<h2 id="5-Gossip"><a href="#5-Gossip" class="headerlink" title="5. Gossip"></a>5. Gossip</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Gossip 算法又被称为反熵（Anti-Entropy），熵是物理学上的一个概念，<strong>代表杂乱无章，而反熵就是在杂乱无章中寻求一致</strong>，这充分说明了 Gossip 的特点：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达成一致。每个节点可能知道所有其他节点，也可能仅知道几个邻居节点，只要这些节可以通过网络连通，最终他们的状态都是一致的，当然这也是疫情传播的特点。</p>
+<h2 id="6-一致性-Hash"><a href="#6-一致性-Hash" class="headerlink" title="6. 一致性 Hash"></a>6. 一致性 Hash</h2><p>&nbsp;&nbsp;&nbsp;&nbsp; 一致性哈希算法(Consistent Hashing Algorithm)是一种分布式算法，常用于负载均衡。 Memcached client 也选择这种算法，解决将 key-value 均匀分配到众多 Memcached server 上的问题。它可以取代传统的取模操作，解决了取模操作无法应对增删 Memcached Server 的问题</p>
+<p>(增删 server 会导致同一个 key,在 get 操作时分配不到数据真正存储的 server，命中率会急剧下降)。 </p>
+<h3 id="6-1-一致性-Hash-特性"><a href="#6-1-一致性-Hash-特性" class="headerlink" title="6.1. 一致性 Hash 特性"></a>6.1. 一致性 Hash 特性</h3><ul>
+<li>平衡性(Balance)：平衡性是指哈希的结果能够尽可能分布到所有的缓冲中去，这样可以使得所有的缓冲空间都得到利用。</li>
+<li>单调性(Monotonicity)：单调性是指如果已经有一些内容通过哈希分派到了相应的缓冲中，又有新的缓冲加入到系统中。哈希的结果应能够保证原有已分配的内容可以被映射到新的缓冲中去，而不会被映射到旧的缓冲集合中的其他缓冲区。容易看到，上面的简单求余算法hash(object)%N 难以满足单调性要求。</li>
+<li>平滑性(Smoothness)：平滑性是指缓存服务器的数目平滑改变和缓存对象的平滑改变是一致的。</li>
+</ul>
+<h3 id="6-2-一致性-Hash-原理"><a href="#6-2-一致性-Hash-原理" class="headerlink" title="6.2. 一致性 Hash 原理"></a>6.2. 一致性 Hash 原理</h3><p><strong>1、建构环形 hash 空间：</strong> </p>
+<ol>
+<li>考虑通常的 hash 算法都是将 value 映射到一个 32 为的 key 值，也即是 0~2^32-1 次方的数值空间；我们可以将这个空间想象成一个首（ 0 ）尾（ 2^32-1 ）相接的圆环。 </li>
+</ol>
+<p><strong>2、把需要缓存的内容(对象)映射到 hash 空间</strong> </p>
+<ol start="2">
+<li>接下来考虑 4 个对象 object1~object4 ，通过 hash 函数计算出的 hash 值 key 在环上的分布 </li>
+</ol>
+<p><strong>3、把服务器(节点)\映射到 hash 空间</strong> </p>
+<ol start="3">
+<li>Consistent hashing 的基本思想就是将对象和 cache 都映射到同一个 hash 数值空间中，并且使用相同的 hash 算法。一般的方法可以使用 服务器(节点) 机器的 IP 地址或者机器名作为 hash 输入。 </li>
+</ol>
+<p><strong>4、把对象映射到服务节点</strong> </p>
+<ol start="4">
+<li>现在服务节点和对象都已经通过同一个 hash 算法映射到 hash 数值空间中了，首先确定对象 hash 值在环上的位置，从此位置沿环顺时针“行走”，第一台遇到的服务器就是其应该定位到的服务器。</li>
+</ol>
+<p><img src="/images/Java_heart_Algorithm/clip_image005.gif" alt="img"> </p>
+<p><strong>考察 cache 的变动</strong> </p>
+<ol start="5">
+<li>通过 hash 然后求余的方法带来的最大问题就在于不能满足单调性，当 cache 有所变动时， cache 会失效。 </li>
+</ol>
+<ul>
+<li><strong>移除 cache</strong>：考虑假设 cache B 挂掉了，根据上面讲到的映射方法，这时受影响的将仅是那些沿 cache B 逆时针遍历直到下一个 cache （ cache C ）之间的对象。 </li>
+<li><strong>添加 cache</strong>：再考虑添加一台新的 cache D 的情况，这时受影响的将仅是那些沿 cache D 逆时针遍历直到下一个 cache 之间的对象，将这些对象重新映射到 cache D 上即可。 </li>
+</ul>
+<p><strong>虚拟节点</strong> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;hash 算法并不是保证绝对的平衡，如果 cache 较少的话，对象并不能被均匀的映射到 cache 上，为了解决这种情况， consistent hashing 引入了“虚拟节点”的概念，它可以如下定义： </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<u>虚拟节点（ virtual node ）是实际节点在 hash 空间的复制品（ replica ）</u>，一实际个节点对应了若干个“虚拟节点”，这个对应个数也成为“复制个数”，“虚拟节点”在 hash 空间中以 hash 值排列。 </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;仍以仅部署 cache A 和 cache C 的情况为例。现在我们引入虚拟节点，并设置“复制个数”为 2 ，这就意味着一共会存在 4 个“虚拟节点”， cache A1, cache A2 代表了 cache A； cache C1, cache C2 代表了 cache C 。此时，对象到“虚拟节点”的映射关系为： </p>
+<p>objec1-&gt;cache A2 ； objec2-&gt;cache A1 ； objec3-&gt;cache C1 ； objec4-&gt;cache C2 ； </p>
+<p>因此对象 object1 和 object2 都被映射到了 cache A 上，而 object3 和 object4 映射到了 cache C 上；平衡性有了很大提高。 </p>
+<p>引入“虚拟节点”后，映射关系就从 { 对象 -&gt; 节点 } 转换到了 { 对象 -&gt; 虚拟节点 } 。查询物体所在 cache 时的映射关系如下图 所示。 </p>
+<p><img src="/images/Java_heart_Algorithm/clip_image007.gif" alt="img"> </p>
+<h2 id="7-最后"><a href="#7-最后" class="headerlink" title="7. 最后"></a>7. 最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;java核心这部分，偶然所得的一份pdf文件，为不知名大佬所整理，在这表示感谢，本着学习所用的态度。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          QuietAir
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://quietair.gitee.io/Java_heart_Algorithm/" title="Java核心(十六)之一致性算法" target="_blank">https://quietair.gitee.io/Java_heart_Algorithm/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -262,133 +417,128 @@ var _hmt = _hmt || [];
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://quietair.gitee.io/Java_heart_Algorithm/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/spring-boot-logging/" class="archive-article-date">
-        <time datetime="2020-03-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/Java_heart_noSql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java核心(十五)之数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/spring-boot-logging/">Spring Boot与日志</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Paxos"><span class="toc-number">1.</span> <span class="toc-text">1. Paxos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zab"><span class="toc-number">2.</span> <span class="toc-text">2. Zab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Raft"><span class="toc-number">3.</span> <span class="toc-text">3. Raft</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-角色"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 角色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Term（任期）"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. Term（任期）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-选举（Election）"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 选举（Election）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-安全性（Safety）"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 安全性（Safety）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-raft-协议和-zab-协议区别"><span class="toc-number">3.5.</span> <span class="toc-text">3.5. raft 协议和 zab 协议区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-NWR"><span class="toc-number">4.</span> <span class="toc-text">4. NWR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Gossip"><span class="toc-number">5.</span> <span class="toc-text">5. Gossip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-一致性-Hash"><span class="toc-number">6.</span> <span class="toc-text">6. 一致性 Hash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-一致性-Hash-特性"><span class="toc-number">6.1.</span> <span class="toc-text">6.1. 一致性 Hash 特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-一致性-Hash-原理"><span class="toc-number">6.2.</span> <span class="toc-text">6.2. 一致性 Hash 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-最后"><span class="toc-number">7.</span> <span class="toc-text">7. 最后</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/spring-boot-configuration/" class="archive-article-date">
-        <time datetime="2020-03-05T07:46:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/spring-boot-configuration/">Spring Boot配置文件解析</a>
-	
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端/Java/" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div id="SOHUCS" sid="Java_heart_Algorithm" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuKapdFi",
+        conf: "ae6e54fd592aff8193bf11988403c346"
+    });
+</script>
+</script>
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -429,8 +579,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
