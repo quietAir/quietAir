@@ -89,11 +89,11 @@
       <category term="Java" scheme="https://quietair.gitee.io/categories/%E5%90%8E%E7%AB%AF/Java/"/>
     
     
+      <category term="HDFS" scheme="https://quietair.gitee.io/tags/HDFS/"/>
+    
       <category term="Hadoop" scheme="https://quietair.gitee.io/tags/Hadoop/"/>
     
       <category term="Spark" scheme="https://quietair.gitee.io/tags/Spark/"/>
-    
-      <category term="HDFS" scheme="https://quietair.gitee.io/tags/HDFS/"/>
     
       <category term="MapReduce" scheme="https://quietair.gitee.io/tags/MapReduce/"/>
     
@@ -295,11 +295,11 @@
       <category term="Java" scheme="https://quietair.gitee.io/categories/%E5%90%8E%E7%AB%AF/Java/"/>
     
     
-      <category term="HDFS" scheme="https://quietair.gitee.io/tags/HDFS/"/>
-    
       <category term="Hbase" scheme="https://quietair.gitee.io/tags/Hbase/"/>
     
       <category term="Zookeeper" scheme="https://quietair.gitee.io/tags/Zookeeper/"/>
+    
+      <category term="HDFS" scheme="https://quietair.gitee.io/tags/HDFS/"/>
     
   </entry>
   
