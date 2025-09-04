@@ -1,4 +1,266 @@
+
 <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>每日一言 · Daily Quote</title>
+  <meta name="description" content="一个纯静态 HTML 页面：自动/手动更新每日一言与每日背景图（均来自网络 API）。" />
+  <style>
+    :root {
+      --bg-blur: 6px;
+      --card-bg: rgba(255, 255, 255, 0.18);
+      --card-border: rgba(255, 255, 255, 0.25);
+      --text-main: #ffffff;
+      --text-sub: rgba(255,255,255,.9);
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text-main);
+      background-color: #0b1020;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35));
+      backdrop-filter: blur(var(--bg-blur));
+      -webkit-backdrop-filter: blur(var(--bg-blur));
+      pointer-events: none;
+    }
+    .wrap {
+      position: relative;
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+    .card {
+      width: min(860px, 95vw);
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 24px 20px 20px;
+      backdrop-filter: blur(4px);
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .title {
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: 700;
+      letter-spacing: .3px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .title small { opacity: .9; font-weight: 500; }
+    .quote {
+      margin: 18px 0 8px;
+      font-size: clamp(20px, 3.2vw, 34px);
+      line-height: 1.5;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+    .from {
+      margin-top: 6px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      color: var(--text-sub);
+    }
+    .meta {
+      margin-top: 14px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    button {
+      border: 1px solid rgba(255,255,255,.4);
+      color: var(--text-main);
+      background: rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      backdrop-filter: blur(2px);
+    }
+    button:hover { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.65); }
+    button:active { transform: translateY(1px) scale(.99); }
+    .hint { font-size: 12px; opacity: .85; }
+    .footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--text-sub);
+      font-size: 12px;
+    }
+    a { color: #dfe8ff; }
+    .loader {
+      display:inline-block; width:18px; height:18px; border-radius:50%; border:3px solid rgba(255,255,255,.35); border-top-color:#fff; animation:spin .9s linear infinite; vertical-align:-4px; margin-right:8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <main class="card" role="main" aria-live="polite">
+      <div class="row">
+        <div class="title">📜 每日一言 <small id="dateText">加载中…</small></div>
+        <div class="btns">
+          <button id="refreshBtn" title="手动更新一言与背景">🔄 手动更新</button>
+          <button id="copyBtn" title="复制当前一言">📋 复制文本</button>
+        </div>
+      </div>
+
+      <div class="quote" id="quoteText"><span class="loader"></span>正在获取今日的一言…</div>
+      <div class="from" id="quoteFrom"></div>
+
+      <div class="meta">
+        <div>来源：<a href="https://hitokoto.cn/" target="_blank" rel="noopener">一言 (v1.hitokoto.cn)</a></div>
+        <div>背景图：<a href="https://picsum.photos/" target="_blank" rel="noopener">Picsum Photos</a></div>
+        <div id="status"></div>
+      </div>
+
+      <div class="footer">
+        <div class="hint">说明：页面为纯静态 HTML。自动按“自然日”更新内容（本地缓存避免重复请求），也支持手动更新。</div>
+        <div>© <span id="year"></span> Daily Quote</div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const QUOTE_API = 'https://v1.hitokoto.cn/?encode=json';
+    const BG_BASE = 'https://picsum.photos';
+    const BG_SIZE = { w: window.innerWidth, h: window.innerHeight }; // 自适应窗口大小
+
+    const fmtDate = (d = new Date()) => {
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const day = String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${day}`;
+    };
+    const todayKey = () => fmtDate();
+    const setStatus = (msg) => { document.getElementById('status').textContent = msg || ''; };
+
+    function setBackground(seed) {
+      const url = `${BG_BASE}/seed/${encodeURIComponent(seed)}/${window.innerWidth}/${window.innerHeight}`;
+      document.body.style.backgroundImage = `url('${url}')`;
+    }
+
+    async function fetchQuote(force = false) {
+      const key = 'dq_quote';
+      const keyDate = 'dq_quote_date';
+      const savedDate = localStorage.getItem(keyDate);
+      const isToday = savedDate === todayKey();
+
+      if (!force && isToday) {
+        const cached = localStorage.getItem(key);
+        if (cached) {
+          try { return JSON.parse(cached); } catch (_) {}
+        }
+      }
+
+      const res = await fetch(QUOTE_API, { cache: 'no-store' });
+      if (!res.ok) throw new Error('一言 API 请求失败');
+      const data = await res.json();
+      const pack = {
+        text: data.hitokoto || '',
+        from: data.from_who || data.from || '',
+        id: data.uuid || data.id || '',
+        ts: Date.now()
+      };
+      localStorage.setItem(key, JSON.stringify(pack));
+      localStorage.setItem(keyDate, todayKey());
+      return pack;
+    }
+
+    function renderQuote(q) {
+      const qEl = document.getElementById('quoteText');
+      const fEl = document.getElementById('quoteFrom');
+      qEl.textContent = q.text || '（今天的话语悄悄溜走了…）';
+      fEl.textContent = q.from ? `—— ${q.from}` : '';
+    }
+
+    async function init(auto = true) {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('dateText').textContent = fmtDate();
+
+      const todaySeed = todayKey();
+      setBackground(todaySeed);
+
+      try {
+        const q = await fetchQuote(false);
+        renderQuote(q);
+        setStatus('已加载');
+      } catch (err) {
+        console.error(err);
+        setStatus('获取失败，已展示缓存或占位内容');
+        const cached = localStorage.getItem('dq_quote');
+        if (cached) {
+          try { renderQuote(JSON.parse(cached)); } catch (_) {}
+        }
+      }
+    }
+
+    document.getElementById('refreshBtn').addEventListener('click', async () => {
+      setStatus('刷新中…');
+      setBackground(Date.now());
+      try {
+        const q = await fetchQuote(true);
+        renderQuote(q);
+        setStatus('已刷新');
+        document.getElementById('dateText').textContent = fmtDate();
+      } catch (err) {
+        console.error(err);
+        setStatus('刷新失败');
+      }
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const text = document.getElementById('quoteText').textContent;
+      const from = document.getElementById('quoteFrom').textContent;
+      const payload = from ? `${text}\n${from}` : text;
+      try {
+        await navigator.clipboard.writeText(payload);
+        setStatus('已复制到剪贴板');
+      } catch {
+        setStatus('复制失败：请手动选中复制');
+      }
+    });
+
+    window.addEventListener('resize', () => setBackground(todayKey()));
+
+    init();
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -1645,3 +1907,4 @@ var _hmt = _hmt || [];
 </body>
 
 </html>
+ -->
